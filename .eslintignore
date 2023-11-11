@@ -1,0 +1,11 @@
+package.json
+babel.config.js
+node_modules
+ios
+android
+.prettierrc.js
+.eslintrc.js
+metro.config.js
+yarn.lock
+tsconfig.json
+README.md
