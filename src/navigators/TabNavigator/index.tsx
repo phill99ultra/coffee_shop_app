@@ -1,11 +1,11 @@
 import React from 'react';
-import {StyleSheet} from 'react-native';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import { StyleSheet } from 'react-native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-import {BlurView} from '@react-native-community/blur';
+import { BlurView } from '@react-native-community/blur';
 import CustomIcon from '../../components/CustomIcon';
-import {COLORS} from '../../theme/theme';
-import {TAB_VALUES} from '../../constants';
+import { COLORS } from '../../theme/theme';
+import { TAB_VALUES } from '../../constants';
 
 const Tab = createBottomTabNavigator();
 
@@ -30,7 +30,7 @@ function TabNavigator() {
           name={element.screenName}
           component={element.screen}
           options={{
-            tabBarIcon: ({focused}) => (
+            tabBarIcon: ({ focused }) => (
               <CustomIcon
                 name={element.iconName}
                 size={25}

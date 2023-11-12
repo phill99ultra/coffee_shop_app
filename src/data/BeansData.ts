@@ -1,4 +1,6 @@
-const BeansData = [
+import { DataType } from '../types';
+
+const BeansData: DataType[] = [
   {
     id: 'B1',
     name: 'Robusta Beans',
@@ -10,9 +12,9 @@ const BeansData = [
     ingredients: 'Africa',
     special_ingredient: 'From Africa',
     prices: [
-      {size: '250gm', price: '5.50', currency: '$'},
-      {size: '500gm', price: '10.50', currency: '$'},
-      {size: '1Kg', price: '18.50', currency: '$'},
+      { size: '250gm', price: '5.50', currency: '$' },
+      { size: '500gm', price: '10.50', currency: '$' },
+      { size: '1Kg', price: '18.50', currency: '$' },
     ],
     average_rating: 4.7,
     ratings_count: '6,879',
@@ -31,9 +33,9 @@ const BeansData = [
     ingredients: 'Africa',
     special_ingredient: 'From Africa',
     prices: [
-      {size: '250gm', price: '5.50', currency: '$'},
-      {size: '500gm', price: '10.50', currency: '$'},
-      {size: '1Kg', price: '18.50', currency: '$'},
+      { size: '250gm', price: '5.50', currency: '$' },
+      { size: '500gm', price: '10.50', currency: '$' },
+      { size: '1Kg', price: '18.50', currency: '$' },
     ],
     average_rating: 4.7,
     ratings_count: '6,879',
@@ -52,9 +54,9 @@ const BeansData = [
     ingredients: 'Malaysia',
     special_ingredient: 'From Malaysia',
     prices: [
-      {size: '250gm', price: '5.50', currency: '$'},
-      {size: '500gm', price: '10.50', currency: '$'},
-      {size: '1Kg', price: '18.50', currency: '$'},
+      { size: '250gm', price: '5.50', currency: '$' },
+      { size: '500gm', price: '10.50', currency: '$' },
+      { size: '1Kg', price: '18.50', currency: '$' },
     ],
     average_rating: 4.7,
     ratings_count: '6,879',
@@ -73,9 +75,9 @@ const BeansData = [
     ingredients: 'Malaysia',
     special_ingredient: 'From Malaysia',
     prices: [
-      {size: '250gm', price: '5.50', currency: '$'},
-      {size: '500gm', price: '10.50', currency: '$'},
-      {size: '1Kg', price: '18.50', currency: '$'},
+      { size: '250gm', price: '5.50', currency: '$' },
+      { size: '500gm', price: '10.50', currency: '$' },
+      { size: '1Kg', price: '18.50', currency: '$' },
     ],
     average_rating: 4.7,
     ratings_count: '6,879',
