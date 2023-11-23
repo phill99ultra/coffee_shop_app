@@ -27,6 +27,7 @@ function TabNavigator() {
       }}>
       {TAB_VALUES.map(element => (
         <Tab.Screen
+          key={element.id}
           name={element.screenName}
           component={element.screen}
           options={{

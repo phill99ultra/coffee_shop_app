@@ -11,5 +11,5 @@ module.exports = {
     ],
     "@typescript-eslint/object-curly-spacing": "off",
     'react/jsx-filename-extension': [2, { 'extensions': ['.js', '.jsx', '.ts', '.tsx'] }],    
-  }
+  },
 };

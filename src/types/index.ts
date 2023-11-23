@@ -1,6 +1,7 @@
 import React from 'react';
 
 export type TabType = {
+  id: number;
   screenName: string;
   iconName: string;
   screen: () => React.JSX.Element;
@@ -36,4 +37,31 @@ export type StoreType = {
   favoritesList: [];
   cartList: [];
   orderHistoryList: [];
+};
+
+export type CountMapType = {
+  [key: string]: number;
+};
+
+export type HeaderType = {
+  title?: string;
+};
+
+export type GradientIconType = {
+  name: string;
+  color: string;
+  size: number;
+};
+
+export type HomeActionType =
+  | { type: 'SET_CATEGORIES'; payload: string[] }
+  | { type: 'SET_SEARCH_TEXT'; payload: string }
+  | { type: 'SET_CATEGORY_INDEX'; payload: { index: number; category: string } }
+  | { type: 'SET_SORTED_COFFEE'; payload: string[] };
+
+export type InitialStateType = {
+  categories: string[];
+  searchText: string;
+  categoryIndex: { index: number; category: string };
+  sortedCoffee: DataType[];
 };
