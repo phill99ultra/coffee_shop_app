@@ -1,12 +1,12 @@
 import { StyleSheet, Text, View } from 'react-native';
 import React from 'react';
 
-import { HeaderType } from '../../types';
+import { HeaderBarProps } from '../../types';
 import { COLORS, FONTFAMILY, FONTSIZE, SPACING } from '../../theme/theme';
 import GradientIcon from '../GradientBGIcon';
 import ProfileAvatar from '../ProfileAvatar';
 
-const HeaderBar = ({ title }: HeaderType) => {
+const HeaderBar = ({ title }: HeaderBarProps) => {
   return (
     <View style={styles.HeaderContainer}>
       <GradientIcon

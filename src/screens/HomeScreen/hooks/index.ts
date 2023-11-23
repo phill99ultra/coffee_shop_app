@@ -27,7 +27,7 @@ const useHome = () => {
 
   const [state, dispatch] = useReducer(homeReducer, INITIAL_STATE);
 
-  return { state, dispatch, beanList };
+  return { state, dispatch, coffeeList, beanList };
 };
 
 export default useHome;

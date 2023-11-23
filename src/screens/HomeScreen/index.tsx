@@ -6,28 +6,24 @@ import {
   StatusBar,
   SafeAreaView,
   Text,
-  TouchableOpacity,
-  TextInput,
 } from 'react-native';
 // import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
 
 import useHome from './hooks';
-import {
-  BORDERRADIUS,
-  COLORS,
-  FONTFAMILY,
-  FONTSIZE,
-  SPACING,
-} from '../../theme/theme';
+import { COLORS, FONTFAMILY, FONTSIZE, SPACING } from '../../theme/theme';
 import HeaderBar from '../../components/HeaderBar';
-import CustomIcon from '../../components/CustomIcon';
+import SearchInputContainer from '../../components/SearchInputContainer';
+import CategoriesNavigator from '../../components/CategoriesNavigator';
 
 function HomeScreen() {
   const {
-    state: { searchText },
+    state: { searchText, categories, categoryIndex },
     dispatch,
+    coffeeList,
   } = useHome();
   // const topBarHeight = useBottomTabBarHeight();
+
+  // console.log('sorted coffee ', sortedCoffee.length);
 
   return (
     <SafeAreaView style={styles.SafeAreaContainer}>
@@ -42,29 +38,13 @@ function HomeScreen() {
             {'\n'}
             coffee for you
           </Text>
-          <View style={styles.InputContainer}>
-            <TouchableOpacity onPress={() => {}}>
-              <CustomIcon
-                name="search"
-                style={styles.InputIcon}
-                size={FONTSIZE.size_18}
-                color={
-                  searchText.length > 0
-                    ? COLORS.primaryOrangeHex
-                    : COLORS.primaryLightGreyHex
-                }
-              />
-            </TouchableOpacity>
-            <TextInput
-              placeholder="Find your coffee"
-              style={styles.TextInputContainer}
-              value={searchText}
-              placeholderTextColor={COLORS.primaryLightGreyHex}
-              onChangeText={text =>
-                dispatch({ type: 'SET_SEARCH_TEXT', payload: text })
-              }
-            />
-          </View>
+          <SearchInputContainer searchText={searchText} dispatch={dispatch} />
+          <CategoriesNavigator
+            categories={categories}
+            categoryIndex={categoryIndex.index}
+            coffeeList={coffeeList}
+            dispatch={dispatch}
+          />
         </ScrollView>
       </View>
     </SafeAreaView>
@@ -88,22 +68,6 @@ const styles = StyleSheet.create({
     fontFamily: FONTFAMILY.poppins_semibold,
     color: COLORS.primaryWhiteHex,
     paddingLeft: SPACING.space_30,
-  },
-  InputContainer: {
-    flexDirection: 'row',
-    margin: SPACING.space_30,
-    borderRadius: BORDERRADIUS.radius_20,
-    backgroundColor: COLORS.primaryDarkGreyHex,
-    alignItems: 'center',
-  },
-  TextInputContainer: {
-    height: SPACING.space_20 * 3,
-    fontFamily: FONTFAMILY.poppins_medium,
-    fontSize: FONTSIZE.size_14,
-    color: COLORS.primaryWhiteHex,
-  },
-  InputIcon: {
-    marginHorizontal: SPACING.space_20,
   },
 });
 
