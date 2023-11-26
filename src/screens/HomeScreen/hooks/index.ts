@@ -10,7 +10,7 @@ import { useStore } from '../../../store';
 
 const useHome = () => {
   const coffeeList = useStore((state: StoreType) => state.coffeeList);
-  const beanList = useStore((state: StoreType) => state.beansList);
+  const beansList = useStore((state: StoreType) => state.beansList);
   const categories = getCategoriesFromData(coffeeList);
   const categoryIndex = {
     index: 0,
@@ -27,7 +27,7 @@ const useHome = () => {
 
   const [state, dispatch] = useReducer(homeReducer, INITIAL_STATE);
 
-  return { state, dispatch, coffeeList, beanList };
+  return { state, dispatch, coffeeList, beansList };
 };
 
 export default useHome;

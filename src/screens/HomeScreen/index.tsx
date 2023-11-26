@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import {
   StyleSheet,
   ScrollView,
@@ -6,22 +6,27 @@ import {
   StatusBar,
   SafeAreaView,
   Text,
+  FlatList,
 } from 'react-native';
-// import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
+import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
 
 import useHome from './hooks';
 import { COLORS, FONTFAMILY, FONTSIZE, SPACING } from '../../theme/theme';
 import HeaderBar from '../../components/HeaderBar';
 import SearchInputContainer from '../../components/SearchInputContainer';
 import CategoriesNavigator from '../../components/CategoriesNavigator';
+import ProductsList from '../../components/ProductsList';
 
 function HomeScreen() {
   const {
-    state: { searchText, categories, categoryIndex },
+    state: { searchText, categories, categoryIndex, sortedCoffee },
     dispatch,
     coffeeList,
+    beansList,
   } = useHome();
-  // const topBarHeight = useBottomTabBarHeight();
+
+  const listRef = useRef<FlatList>();
+  const topBarHeight = useBottomTabBarHeight();
 
   // console.log('sorted coffee ', sortedCoffee.length);
 
@@ -40,11 +45,15 @@ function HomeScreen() {
           </Text>
           <SearchInputContainer searchText={searchText} dispatch={dispatch} />
           <CategoriesNavigator
+            listRef={listRef}
             categories={categories}
             categoryIndex={categoryIndex.index}
             coffeeList={coffeeList}
             dispatch={dispatch}
           />
+          <ProductsList listRef={listRef} products={sortedCoffee} />
+          <Text style={styles.CoffeeBeansTitle}>Coffee Beans</Text>
+          <ProductsList products={beansList} topBarHeight={topBarHeight} />
         </ScrollView>
       </View>
     </SafeAreaView>
@@ -68,6 +77,13 @@ const styles = StyleSheet.create({
     fontFamily: FONTFAMILY.poppins_semibold,
     color: COLORS.primaryWhiteHex,
     paddingLeft: SPACING.space_30,
+  },
+  CoffeeBeansTitle: {
+    fontSize: FONTSIZE.size_18,
+    marginLeft: SPACING.space_30,
+    marginTop: SPACING.space_20,
+    fontFamily: FONTFAMILY.poppins_medium,
+    color: COLORS.secondaryLightGreyHex,
   },
 });
 

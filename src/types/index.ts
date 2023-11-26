@@ -1,4 +1,5 @@
 import React from 'react';
+import { ImageSourcePropType } from 'react-native';
 
 // STYLES //
 export interface Spacing {
@@ -142,8 +143,45 @@ export type GradientIconProps = {
 };
 
 export type CategoriesNavigatorProps = {
+  listRef: any;
   categories: string[];
   categoryIndex: number;
   coffeeList: DataType[];
   dispatch: React.Dispatch<HomeActionType>;
+};
+
+export type CoffeeCardProps = {
+  id: string;
+  index: number;
+  type: string;
+  roasted: string;
+  imagelink_square: ImageSourcePropType;
+  name: string;
+  average_rating: number;
+  special_ingredient: string;
+  ratings_count: string;
+  price: string;
+  buttonPressHandler: any;
+};
+
+export type BGIconProps = {
+  name: string;
+  color: string;
+  size: number;
+  backgroundColor: string;
+};
+
+export type CardImageProps = {
+  imagelink_square: ImageSourcePropType;
+  average_rating: number;
+};
+
+export type CardBottomProps = {
+  price: string;
+};
+
+export type ProductsListProps = {
+  listRef?: any;
+  products: DataType[];
+  topBarHeight?: number;
 };

@@ -18,6 +18,7 @@ import {
 import { getCoffeeList } from '../../helpers';
 
 const CategoriesNavigator = ({
+  listRef,
   categories,
   categoryIndex,
   coffeeList,
@@ -33,6 +34,10 @@ const CategoriesNavigator = ({
           <TouchableOpacity
             style={styles.CategoryScrollViewItem}
             onPress={() => {
+              listRef?.current?.scrollToOffset({
+                animated: true,
+                offset: 0,
+              });
               dispatch({
                 type: 'SET_CATEGORY_INDEX',
                 payload: { index: index, category: categories[index] },
@@ -60,7 +65,7 @@ const CategoriesNavigator = ({
 const styles = StyleSheet.create({
   CategoriesScrollView: {
     paddingHorizontal: SPACING.space_20,
-    marginBottom: SPACING.space_20,
+    marginBottom: SPACING.space_10,
   },
   ActiveCategory: {
     width: SPACING.space_10,

@@ -52,6 +52,7 @@ const styles = StyleSheet.create({
   },
   TextInputContainer: {
     height: SPACING.space_20 * 3,
+    width: '100%',
     fontFamily: FONTFAMILY.poppins_medium,
     fontSize: FONTSIZE.size_14,
     color: COLORS.primaryWhiteHex,

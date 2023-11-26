@@ -1,12 +1,12 @@
 import { StyleSheet, Image, View } from 'react-native';
 import React from 'react';
-import { COLORS, SPACING, BORDERRADIUS } from '../../theme/theme';
+import { COLORS, SPACING, BORDERRADIUS } from '../../../theme/theme';
 
 const ProfileAvatar = () => {
   return (
     <View style={styles.ImageContainer}>
       <Image
-        source={require('../../assets/app_images/avatar.png')}
+        source={require('../../../assets/app_images/avatar.png')}
         style={styles.Image}
       />
     </View>
