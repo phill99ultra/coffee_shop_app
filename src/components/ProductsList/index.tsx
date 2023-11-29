@@ -4,17 +4,20 @@ import React from 'react';
 import { SPACING } from '../../theme/theme';
 import ProductCard from '../ProductCard';
 import { ProductsListProps } from '../../types';
+import EmptyList from './EmptyList';
 
 const ProductsList = ({
   listRef,
   products,
   topBarHeight,
+  coffee,
 }: ProductsListProps) => {
   return (
     <FlatList
       ref={listRef}
       horizontal
       showsHorizontalScrollIndicator={false}
+      ListEmptyComponent={coffee ? <EmptyList /> : null}
       style={[
         styles.FlatListContainer,
         { marginBottom: topBarHeight && topBarHeight },

@@ -186,6 +186,7 @@ export type ProductsListProps = {
   listRef?: any;
   products: DataType[];
   topBarHeight?: number;
+  coffee?: boolean;
 };
 
 export type SearchResultProps = {

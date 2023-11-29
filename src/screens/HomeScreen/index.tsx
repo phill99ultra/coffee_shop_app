@@ -57,7 +57,11 @@ function HomeScreen() {
             coffeeList={coffeeList}
             dispatch={dispatch}
           />
-          <ProductsList listRef={listRef} products={sortedCoffee} />
+          <ProductsList
+            listRef={listRef}
+            products={sortedCoffee}
+            coffee={true}
+          />
           <Text style={styles.CoffeeBeansTitle}>Coffee Beans</Text>
           <ProductsList products={beansList} topBarHeight={topBarHeight} />
         </ScrollView>

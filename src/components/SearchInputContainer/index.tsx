@@ -40,9 +40,10 @@ const SearchInputContainer = ({
         style={styles.TextInputContainer}
         value={searchText}
         placeholderTextColor={COLORS.primaryLightGreyHex}
-        onChangeText={text =>
-          dispatch({ type: 'SET_SEARCH_TEXT', payload: text })
-        }
+        onChangeText={text => {
+          dispatch({ type: 'SET_SEARCH_TEXT', payload: text });
+          searchCoffee(text);
+        }}
       />
       {searchText.length > 0 ? (
         <SearchResult resetSearchCoffee={resetSearchCoffee} />
