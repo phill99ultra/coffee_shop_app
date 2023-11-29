@@ -2,7 +2,7 @@ import { FlatList, StyleSheet } from 'react-native';
 import React from 'react';
 
 import { SPACING } from '../../theme/theme';
-import CoffeeCard from '../CoffeeCard';
+import ProductCard from '../ProductCard';
 import { ProductsListProps } from '../../types';
 
 const ProductsList = ({
@@ -22,7 +22,7 @@ const ProductsList = ({
       keyExtractor={item => item.id}
       data={products}
       renderItem={({ item }) => (
-        <CoffeeCard
+        <ProductCard
           name={item.name}
           imagelink_square={item.imagelink_square}
           average_rating={item.average_rating}

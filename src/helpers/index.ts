@@ -47,3 +47,12 @@ export function homeReducer(
       return state;
   }
 }
+
+export function filterCoffeeList(
+  list: DataType[],
+  searchText: string,
+): DataType[] {
+  return list.filter((item: DataType) =>
+    item.name.toLowerCase().includes(searchText.toLowerCase()),
+  );
+}

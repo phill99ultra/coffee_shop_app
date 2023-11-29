@@ -10,11 +10,20 @@ import {
   FONTFAMILY,
 } from '../../theme/theme';
 import { SearchInputProps } from '../../types';
+import SearchResult from './SearchResult';
 
-const SearchInputContainer = ({ searchText, dispatch }: SearchInputProps) => {
+const SearchInputContainer = ({
+  searchText,
+  dispatch,
+  searchCoffee,
+  resetSearchCoffee,
+}: SearchInputProps) => {
   return (
     <View style={styles.InputContainer}>
-      <TouchableOpacity onPress={() => {}}>
+      <TouchableOpacity
+        onPress={() => {
+          searchCoffee(searchText);
+        }}>
         <CustomIcon
           name="search"
           style={styles.InputIcon}
@@ -35,6 +44,11 @@ const SearchInputContainer = ({ searchText, dispatch }: SearchInputProps) => {
           dispatch({ type: 'SET_SEARCH_TEXT', payload: text })
         }
       />
+      {searchText.length > 0 ? (
+        <SearchResult resetSearchCoffee={resetSearchCoffee} />
+      ) : (
+        <></>
+      )}
     </View>
   );
 };
@@ -52,7 +66,7 @@ const styles = StyleSheet.create({
   },
   TextInputContainer: {
     height: SPACING.space_20 * 3,
-    width: '100%',
+    width: '80%',
     fontFamily: FONTFAMILY.poppins_medium,
     fontSize: FONTSIZE.size_14,
     color: COLORS.primaryWhiteHex,

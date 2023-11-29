@@ -1,9 +1,11 @@
-import { useReducer } from 'react';
+import { useReducer, useRef } from 'react';
+import { FlatList } from 'react-native';
 
 import {
   getCategoriesFromData,
   getCoffeeList,
   homeReducer,
+  filterCoffeeList,
 } from '../../../helpers';
 import { StoreType, InitialStateType } from '../../../types';
 import { useStore } from '../../../store';
@@ -17,6 +19,7 @@ const useHome = () => {
     category: categories[0],
   };
   const sortedCoffee = getCoffeeList(categoryIndex.category, coffeeList);
+  const listRef = useRef<FlatList>();
 
   const INITIAL_STATE: InitialStateType = {
     categories: categories,
@@ -27,7 +30,51 @@ const useHome = () => {
 
   const [state, dispatch] = useReducer(homeReducer, INITIAL_STATE);
 
-  return { state, dispatch, coffeeList, beansList };
+  const searchCoffee = (search: string) => {
+    if (search !== '') {
+      listRef?.current?.scrollToOffset({
+        animated: true,
+        offset: 0,
+      });
+      dispatch({
+        type: 'SET_CATEGORY_INDEX',
+        payload: { index: 0, category: categories[0] },
+      });
+      dispatch({
+        type: 'SET_SORTED_COFFEE',
+        payload: filterCoffeeList(coffeeList, search),
+      });
+    }
+  };
+
+  const resetSearchCoffee = () => {
+    listRef?.current?.scrollToOffset({
+      animated: true,
+      offset: 0,
+    });
+    dispatch({
+      type: 'SET_CATEGORY_INDEX',
+      payload: { index: 0, category: categories[0] },
+    });
+    dispatch({
+      type: 'SET_SORTED_COFFEE',
+      payload: coffeeList,
+    });
+    dispatch({
+      type: 'SET_SEARCH_TEXT',
+      payload: '',
+    });
+  };
+
+  return {
+    state,
+    dispatch,
+    coffeeList,
+    beansList,
+    listRef,
+    searchCoffee,
+    resetSearchCoffee,
+  };
 };
 
 export default useHome;

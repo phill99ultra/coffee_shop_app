@@ -1,7 +1,7 @@
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import React from 'react';
 
-import { CoffeeCardProps } from '../../types';
+import { ProductCardProps } from '../../types';
 import LinearGradient from 'react-native-linear-gradient';
 import {
   BORDERRADIUS,
@@ -13,13 +13,13 @@ import {
 import CardImage from './CardImage';
 import CardBottom from './CardBottom';
 
-const CoffeeCard = ({
+const ProductCard = ({
   name,
   imagelink_square,
   average_rating,
   special_ingredient,
   price,
-}: CoffeeCardProps) => {
+}: ProductCardProps) => {
   return (
     <View style={styles.CardContainer}>
       <TouchableOpacity onPress={() => {}}>
@@ -61,4 +61,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default CoffeeCard;
+export default ProductCard;

@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import {
   StyleSheet,
   ScrollView,
@@ -6,7 +6,6 @@ import {
   StatusBar,
   SafeAreaView,
   Text,
-  FlatList,
 } from 'react-native';
 import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
 
@@ -23,9 +22,11 @@ function HomeScreen() {
     dispatch,
     coffeeList,
     beansList,
+    listRef,
+    searchCoffee,
+    resetSearchCoffee,
   } = useHome();
 
-  const listRef = useRef<FlatList>();
   const topBarHeight = useBottomTabBarHeight();
 
   // console.log('sorted coffee ', sortedCoffee.length);
@@ -43,7 +44,12 @@ function HomeScreen() {
             {'\n'}
             coffee for you
           </Text>
-          <SearchInputContainer searchText={searchText} dispatch={dispatch} />
+          <SearchInputContainer
+            searchText={searchText}
+            dispatch={dispatch}
+            searchCoffee={searchCoffee}
+            resetSearchCoffee={resetSearchCoffee}
+          />
           <CategoriesNavigator
             listRef={listRef}
             categories={categories}

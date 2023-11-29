@@ -130,6 +130,8 @@ export type InitialStateType = {
 export type SearchInputProps = {
   searchText: string;
   dispatch: React.Dispatch<HomeActionType>;
+  searchCoffee: (search: string) => void;
+  resetSearchCoffee: () => void;
 };
 
 export type HeaderBarProps = {
@@ -150,7 +152,7 @@ export type CategoriesNavigatorProps = {
   dispatch: React.Dispatch<HomeActionType>;
 };
 
-export type CoffeeCardProps = {
+export type ProductCardProps = {
   id: string;
   index: number;
   type: string;
@@ -184,4 +186,8 @@ export type ProductsListProps = {
   listRef?: any;
   products: DataType[];
   topBarHeight?: number;
+};
+
+export type SearchResultProps = {
+  resetSearchCoffee: () => void;
 };
