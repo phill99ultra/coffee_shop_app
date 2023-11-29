@@ -1,7 +1,7 @@
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import React from 'react';
 
-import { ProductCardProps } from '../../types';
+import { ProductCardProps } from '../../../types';
 import LinearGradient from 'react-native-linear-gradient';
 import {
   BORDERRADIUS,
@@ -9,7 +9,7 @@ import {
   FONTFAMILY,
   FONTSIZE,
   SPACING,
-} from '../../theme/theme';
+} from '../../../theme/theme';
 import CardImage from './CardImage';
 import CardBottom from './CardBottom';
 
@@ -19,10 +19,14 @@ const ProductCard = ({
   average_rating,
   special_ingredient,
   price,
+  navigation,
 }: ProductCardProps) => {
   return (
     <View style={styles.CardContainer}>
-      <TouchableOpacity onPress={() => {}}>
+      <TouchableOpacity
+        onPress={() => {
+          navigation.push('Details');
+        }}>
         <LinearGradient
           start={{ x: 0, y: 0 }}
           end={{ x: 1, y: 1 }}

@@ -2,7 +2,7 @@ import { FlatList, StyleSheet } from 'react-native';
 import React from 'react';
 
 import { SPACING } from '../../theme/theme';
-import ProductCard from '../ProductCard';
+import ProductCard from './ProductCard';
 import { ProductsListProps } from '../../types';
 import EmptyList from './EmptyList';
 
@@ -11,6 +11,7 @@ const ProductsList = ({
   products,
   topBarHeight,
   coffee,
+  navigation,
 }: ProductsListProps) => {
   return (
     <FlatList
@@ -31,6 +32,7 @@ const ProductsList = ({
           average_rating={item.average_rating}
           special_ingredient={item.special_ingredient}
           price={item.prices[2].price}
+          navigation={navigation}
         />
       )}
     />

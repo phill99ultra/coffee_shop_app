@@ -1,9 +1,9 @@
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import React from 'react';
 
-import { COLORS, FONTFAMILY, FONTSIZE, SPACING } from '../../../theme/theme';
+import { COLORS, FONTFAMILY, FONTSIZE, SPACING } from '../../../../theme/theme';
 import BGIcon from '../BGIcon';
-import { CardBottomProps } from '../../../types';
+import { CardBottomProps } from '../../../../types';
 
 const CardBottom = ({ price }: CardBottomProps) => {
   return (

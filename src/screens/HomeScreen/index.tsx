@@ -15,8 +15,9 @@ import HeaderBar from '../../components/HeaderBar';
 import SearchInputContainer from '../../components/SearchInputContainer';
 import CategoriesNavigator from '../../components/CategoriesNavigator';
 import ProductsList from '../../components/ProductsList';
+import { DetailsScreenProps } from '../../types';
 
-function HomeScreen() {
+function HomeScreen({ navigation }: DetailsScreenProps) {
   const {
     state: { searchText, categories, categoryIndex, sortedCoffee },
     dispatch,
@@ -61,9 +62,14 @@ function HomeScreen() {
             listRef={listRef}
             products={sortedCoffee}
             coffee={true}
+            navigation={navigation}
           />
           <Text style={styles.CoffeeBeansTitle}>Coffee Beans</Text>
-          <ProductsList products={beansList} topBarHeight={topBarHeight} />
+          <ProductsList
+            products={beansList}
+            topBarHeight={topBarHeight}
+            navigation={navigation}
+          />
         </ScrollView>
       </View>
     </SafeAreaView>

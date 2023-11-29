@@ -495,7 +495,7 @@ PODS:
     - React-jsi (= 0.72.6)
     - React-logger (= 0.72.6)
     - React-perflogger (= 0.72.6)
-  - RNCAsyncStorage (1.19.8):
+  - RNCAsyncStorage (1.21.0):
     - React-Core
   - RNScreens (3.27.0):
     - RCT-Folly (= 2021.07.22.00)
@@ -749,7 +749,7 @@ SPEC CHECKSUMS:
   React-runtimescheduler: f23e337008403341177fc52ee4ca94e442c17ede
   React-utils: fa59c9a3375fb6f4aeb66714fd3f7f76b43a9f16
   ReactCommon: dd03c17275c200496f346af93a7b94c53f3093a4
-  RNCAsyncStorage: 687bb9e85dd3d45b966662440dcfc0cd962347e6
+  RNCAsyncStorage: 618d03a5f52fbccb3d7010076bc54712844c18ef
   RNScreens: 3c2d122f5e08c192e254c510b212306da97d2581
   RNVectorIcons: 23b6e11af4aaf104d169b1b0afa7e5cf96c676ce
   SocketRocket: f32cd54efbe0f095c4d7594881e52619cfe80b17

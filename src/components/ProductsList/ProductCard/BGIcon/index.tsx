@@ -1,9 +1,9 @@
 import { StyleSheet, View } from 'react-native';
 import React from 'react';
 
-import { BGIconProps } from '../../../types';
-import { BORDERRADIUS, SPACING } from '../../../theme/theme';
-import CustomIcon from '../../CustomIcon';
+import { BGIconProps } from '../../../../types';
+import { BORDERRADIUS, SPACING } from '../../../../theme/theme';
+import CustomIcon from '../../../CustomIcon';
 
 const BGIcon = ({ name, color, size, backgroundColor }: BGIconProps) => {
   return (

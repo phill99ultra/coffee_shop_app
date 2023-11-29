@@ -1,5 +1,7 @@
 import React from 'react';
 import { ImageSourcePropType } from 'react-native';
+import { StackNavigationProp } from '@react-navigation/stack';
+import { RouteProp } from '@react-navigation/native';
 
 // STYLES //
 export interface Spacing {
@@ -69,12 +71,43 @@ export interface BorderRadius {
   radius_25: number;
 }
 
+// NAVIGATION TYPES
+export type RootStackParamList = {
+  Home: undefined;
+  Cart: undefined;
+  Favorite: undefined;
+  History: undefined;
+  Details: undefined;
+};
+
+// NAVIGATION TYPES FOR SCREENS
+type HomeScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Home'>;
+type HomeScreenRouteProp = RouteProp<RootStackParamList, 'Home'>;
+export type DetailsScreenNavigationProp = StackNavigationProp<
+  RootStackParamList,
+  'Details'
+>;
+type DetailsScreenRouteProp = RouteProp<RootStackParamList, 'Details'>;
+
+// TYPES IN SCREEN COMPONENTS
+export type DetailsScreenProps = {
+  navigation: DetailsScreenNavigationProp;
+  route: DetailsScreenRouteProp;
+};
+
+export type HomeScreenProps = {
+  navigation: HomeScreenNavigationProp;
+  route: HomeScreenRouteProp;
+};
+
 export type TabType = {
   id: number;
-  screenName: string;
+  screenName: keyof RootStackParamList;
   iconName: string;
-  screen: () => React.JSX.Element;
+  screen: React.FC<any>;
 };
+
+// OTHER TYPES
 
 type PriceType = {
   size: string;
@@ -164,6 +197,7 @@ export type ProductCardProps = {
   ratings_count: string;
   price: string;
   buttonPressHandler: any;
+  navigation: DetailsScreenNavigationProp;
 };
 
 export type BGIconProps = {
@@ -187,6 +221,7 @@ export type ProductsListProps = {
   products: DataType[];
   topBarHeight?: number;
   coffee?: boolean;
+  navigation: DetailsScreenNavigationProp;
 };
 
 export type SearchResultProps = {

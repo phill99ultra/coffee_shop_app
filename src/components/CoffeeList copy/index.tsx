@@ -2,7 +2,7 @@ import { FlatList, StyleSheet } from 'react-native';
 import React from 'react';
 
 import { SPACING } from '../../theme/theme';
-import CoffeeCard from '../ProductCard';
+import CoffeeCard from '../ProductsList/ProductCard';
 import { CoffeeListProps } from '../../types';
 
 const CoffeeList = ({ sortedCoffee }: CoffeeListProps) => {
