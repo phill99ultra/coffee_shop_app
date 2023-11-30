@@ -109,10 +109,11 @@ export type TabType = {
 
 // OTHER TYPES
 
-type PriceType = {
+export type PriceType = {
   size: string;
   price: string;
   currency: string;
+  quantity?: number;
 };
 
 export type DataType = {
@@ -130,6 +131,7 @@ export type DataType = {
   favourite: boolean;
   type: string;
   index: number;
+  item_price?: string;
 };
 
 export type StoreType = {
