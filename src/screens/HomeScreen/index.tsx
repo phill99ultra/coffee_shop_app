@@ -15,9 +15,9 @@ import HeaderBar from '../../components/HeaderBar';
 import SearchInputContainer from '../../components/SearchInputContainer';
 import CategoriesNavigator from '../../components/CategoriesNavigator';
 import ProductsList from '../../components/ProductsList';
-import { DetailsScreenProps } from '../../types';
+import { ItemScreenProps } from '../../types';
 
-function HomeScreen({ navigation }: DetailsScreenProps) {
+function HomeScreen({ navigation }: ItemScreenProps) {
   const {
     state: { searchText, categories, categoryIndex, sortedCoffee },
     dispatch,
@@ -29,8 +29,6 @@ function HomeScreen({ navigation }: DetailsScreenProps) {
   } = useHome();
 
   const topBarHeight = useBottomTabBarHeight();
-
-  // console.log('sorted coffee ', sortedCoffee.length);
 
   return (
     <SafeAreaView style={styles.SafeAreaContainer}>

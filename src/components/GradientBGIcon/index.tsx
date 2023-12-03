@@ -2,9 +2,9 @@ import { StyleSheet, View } from 'react-native';
 import React from 'react';
 import LinearGradient from 'react-native-linear-gradient';
 
-import { GradientIconProps } from '../../../types';
-import { COLORS, SPACING } from '../../../theme/theme';
-import CustomIcon from '../../CustomIcon';
+import { GradientIconProps } from '../../types';
+import { COLORS, SPACING } from '../../theme/theme';
+import CustomIcon from '../CustomIcon';
 
 const GradientIcon = ({ name, color, size }: GradientIconProps) => {
   return (

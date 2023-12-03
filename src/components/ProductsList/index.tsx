@@ -33,6 +33,9 @@ const ProductsList = ({
           special_ingredient={item.special_ingredient}
           price={item.prices[2].price}
           navigation={navigation}
+          id={item.id}
+          index={item.index}
+          type={item.type}
         />
       )}
     />

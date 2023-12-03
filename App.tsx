@@ -1,13 +1,13 @@
-// import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import TabNavigator from './src/navigators/TabNavigator';
 import PaymentScreen from './src/screens/PaymentScreen';
-import DetailScreen from './src/screens/DetailScreen';
+import ItemScreen from './src/screens/ItemScreen';
+import { RootStackParamList } from './src/types';
 
-const Stack = createNativeStackNavigator();
+const Stack = createNativeStackNavigator<RootStackParamList>();
 
 function App() {
   return (
@@ -21,8 +21,8 @@ function App() {
           }}
         />
         <Stack.Screen
-          name="Details"
-          component={DetailScreen}
+          name="Item"
+          component={ItemScreen}
           options={{
             animation: 'slide_from_bottom',
           }}

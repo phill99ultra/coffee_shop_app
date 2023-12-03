@@ -3,7 +3,7 @@ import React from 'react';
 
 import { HeaderBarProps } from '../../types';
 import { COLORS, FONTFAMILY, FONTSIZE, SPACING } from '../../theme/theme';
-import GradientIcon from './GradientBGIcon';
+import GradientIcon from '../GradientBGIcon';
 import ProfileAvatar from './ProfileAvatar';
 
 const HeaderBar = ({ title }: HeaderBarProps) => {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { ImageSourcePropType } from 'react-native';
+import { ImageProps, ImageSourcePropType } from 'react-native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { RouteProp } from '@react-navigation/native';
 
@@ -73,26 +73,29 @@ export interface BorderRadius {
 
 // NAVIGATION TYPES
 export type RootStackParamList = {
+  Tab: undefined;
   Home: undefined;
   Cart: undefined;
+  Payment: undefined;
   Favorite: undefined;
   History: undefined;
-  Details: undefined;
+  Item: {
+    index: number;
+    id: string;
+    type: string;
+  };
 };
 
 // NAVIGATION TYPES FOR SCREENS
 type HomeScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Home'>;
 type HomeScreenRouteProp = RouteProp<RootStackParamList, 'Home'>;
-export type DetailsScreenNavigationProp = StackNavigationProp<
-  RootStackParamList,
-  'Details'
->;
-type DetailsScreenRouteProp = RouteProp<RootStackParamList, 'Details'>;
+type ItemScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Item'>;
+type ItemScreenRouteProp = RouteProp<RootStackParamList, 'Item'>;
 
 // TYPES IN SCREEN COMPONENTS
-export type DetailsScreenProps = {
-  navigation: DetailsScreenNavigationProp;
-  route: DetailsScreenRouteProp;
+export type ItemScreenProps = {
+  navigation: ItemScreenNavigationProp;
+  route: ItemScreenRouteProp;
 };
 
 export type HomeScreenProps = {
@@ -121,8 +124,8 @@ export type DataType = {
   name: string;
   description: string;
   roasted: string;
-  imagelink_square: any;
-  imagelink_portrait: any;
+  imagelink_square: ImageProps;
+  imagelink_portrait: ImageProps;
   ingredients: string;
   special_ingredient: string;
   prices: PriceType[];
@@ -160,7 +163,7 @@ export type InitialStateType = {
   sortedCoffee: DataType[];
 };
 
-// PROPS //
+// TYPES FOR PROPS //
 
 export type SearchInputProps = {
   searchText: string;
@@ -199,7 +202,7 @@ export type ProductCardProps = {
   ratings_count: string;
   price: string;
   buttonPressHandler: any;
-  navigation: DetailsScreenNavigationProp;
+  navigation: ItemScreenNavigationProp;
 };
 
 export type BGIconProps = {
@@ -223,9 +226,25 @@ export type ProductsListProps = {
   products: DataType[];
   topBarHeight?: number;
   coffee?: boolean;
-  navigation: DetailsScreenNavigationProp;
+  navigation: ItemScreenNavigationProp;
 };
 
 export type SearchResultProps = {
   resetSearchCoffee: () => void;
+};
+
+export type ItemImageProps = {
+  enableBackHandler: boolean;
+  imagelink_portrait: ImageProps;
+  type: string;
+  id: string;
+  favourite: boolean;
+  name: string;
+  special_ingredient: string;
+  ingredients: string;
+  average_rating: number;
+  ratings_count: string;
+  roasted: string;
+  backHandler?: any;
+  toggleFavourite: any;
 };

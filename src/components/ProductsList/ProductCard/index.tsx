@@ -19,13 +19,16 @@ const ProductCard = ({
   average_rating,
   special_ingredient,
   price,
+  index,
+  id,
+  type,
   navigation,
 }: ProductCardProps) => {
   return (
     <View style={styles.CardContainer}>
       <TouchableOpacity
         onPress={() => {
-          navigation.push('Details');
+          navigation.push('Item', { index, id, type });
         }}>
         <LinearGradient
           start={{ x: 0, y: 0 }}
