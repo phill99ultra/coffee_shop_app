@@ -1,14 +1,9 @@
-import {
-  StyleSheet,
-  View,
-  ImageBackground,
-  TouchableOpacity,
-} from 'react-native';
+import { StyleSheet, View, ImageBackground } from 'react-native';
 import React from 'react';
 
 import { ItemImageProps } from '../../../types';
-import GradientIcon from '../../../components/GradientBGIcon';
-import { COLORS, FONTSIZE } from '../../../theme/theme';
+import ItemImageBtns from './ItemImageBtns';
+import ItemImageBottom from './ItemImageBottom';
 
 const ItemImageComponent = ({
   enableBackHandler,
@@ -22,30 +17,28 @@ const ItemImageComponent = ({
   average_rating,
   ratings_count,
   roasted,
+  handleBackHandler,
+  handleToggleFavourite,
 }: ItemImageProps) => {
   return (
     <View>
       <ImageBackground
         style={styles.ItemBackgroundImage}
         source={imagelink_portrait}>
-        {enableBackHandler && (
-          <View>
-            <TouchableOpacity>
-              <GradientIcon
-                name="left"
-                color={COLORS.primaryLightGreyHex}
-                size={FONTSIZE.size_16}
-              />
-            </TouchableOpacity>
-            <TouchableOpacity>
-              <GradientIcon
-                name="like"
-                color={COLORS.primaryLightGreyHex}
-                size={FONTSIZE.size_16}
-              />
-            </TouchableOpacity>
-          </View>
-        )}
+        <ItemImageBtns
+          enableBackHandler={enableBackHandler}
+          favourite={favourite}
+          type={type}
+          id={id}
+          handleBackHandler={handleBackHandler}
+          handleToggleFavourite={handleToggleFavourite}
+        />
+        <ItemImageBottom
+          name={name}
+          special_ingredient={special_ingredient}
+          ingredients={ingredients}
+          type={type}
+        />
       </ImageBackground>
     </View>
   );

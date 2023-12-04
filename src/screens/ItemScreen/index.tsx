@@ -8,33 +8,31 @@ import {
 import React from 'react';
 
 import { ItemScreenProps } from '../../types';
-import { useStore } from '../../store';
 import { COLORS } from '../../theme/theme';
 import ItemImageComponent from './ItemImageComponent';
+import useItemDetails from './hooks';
 
-function ItemScreen({ route }: ItemScreenProps) {
+function ItemScreen({ navigation, route }: ItemScreenProps) {
   const { index: indexParam, type: typeParam } = route.params || {
     index: 0,
     type: '',
   };
-  const itemOfIndex = useStore(state =>
-    typeParam === 'Coffee' ? state.coffeeList : state.beansList,
-  )[indexParam];
+
+  const { GetItemOfIndex, handleNavigateBack, handleToggleFavourite } =
+    useItemDetails();
 
   const {
     imagelink_portrait,
-    type,
-    id,
-    favourite,
+    type: typeOfItem,
+    id: idOfItem,
+    favourite: favouriteOfItem,
     name,
     special_ingredient,
     ingredients,
     average_rating,
     ratings_count,
     roasted,
-    backHandler,
-    toggleFavourite,
-  } = itemOfIndex;
+  } = GetItemOfIndex(indexParam, typeParam);
 
   return (
     <SafeAreaView style={styles.SafeAreaContainer}>
@@ -46,17 +44,17 @@ function ItemScreen({ route }: ItemScreenProps) {
           <ItemImageComponent
             enableBackHandler={true}
             imagelink_portrait={imagelink_portrait}
-            type={type}
-            id={id}
-            favourite={favourite}
+            type={typeOfItem}
+            id={idOfItem}
+            favourite={favouriteOfItem}
             name={name}
             special_ingredient={special_ingredient}
             ingredients={ingredients}
             average_rating={average_rating}
             ratings_count={ratings_count}
             roasted={roasted}
-            backHandler={() => {}}
-            toggleFavourite={() => {}}
+            handleBackHandler={handleNavigateBack(navigation)}
+            handleToggleFavourite={handleToggleFavourite}
           />
         </ScrollView>
       </View>

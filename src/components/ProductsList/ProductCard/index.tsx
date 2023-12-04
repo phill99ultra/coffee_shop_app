@@ -1,7 +1,7 @@
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import React from 'react';
 
-import { ProductCardProps } from '../../../types';
+import { ItemCardProps } from '../../../types';
 import LinearGradient from 'react-native-linear-gradient';
 import {
   BORDERRADIUS,
@@ -23,7 +23,7 @@ const ProductCard = ({
   id,
   type,
   navigation,
-}: ProductCardProps) => {
+}: ItemCardProps) => {
   return (
     <View style={styles.CardContainer}>
       <TouchableOpacity

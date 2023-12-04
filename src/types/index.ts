@@ -7,6 +7,7 @@ import { RouteProp } from '@react-navigation/native';
 export interface Spacing {
   space_2: number;
   space_4: number;
+  space_6: number;
   space_8: number;
   space_10: number;
   space_12: number;
@@ -69,6 +70,7 @@ export interface BorderRadius {
   radius_15: number;
   radius_20: number;
   radius_25: number;
+  radius_40: number;
 }
 
 // NAVIGATION TYPES
@@ -89,7 +91,10 @@ export type RootStackParamList = {
 // NAVIGATION TYPES FOR SCREENS
 type HomeScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Home'>;
 type HomeScreenRouteProp = RouteProp<RootStackParamList, 'Home'>;
-type ItemScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Item'>;
+export type ItemScreenNavigationProp = StackNavigationProp<
+  RootStackParamList,
+  'Item'
+>;
 type ItemScreenRouteProp = RouteProp<RootStackParamList, 'Item'>;
 
 // TYPES IN SCREEN COMPONENTS
@@ -112,6 +117,11 @@ export type TabType = {
 
 // OTHER TYPES
 
+enum TYPE {
+  BEAN = 'Bean',
+  COFFEE = 'Coffee',
+}
+
 export type PriceType = {
   size: string;
   price: string;
@@ -132,7 +142,7 @@ export type DataType = {
   average_rating: number;
   ratings_count: string;
   favourite: boolean;
-  type: string;
+  type: TYPE;
   index: number;
   item_price?: string;
 };
@@ -141,9 +151,11 @@ export type StoreType = {
   coffeeList: DataType[];
   beansList: DataType[];
   cartAmount: number;
-  favoritesList: [];
+  favouritesList: [];
   cartList: [];
   orderHistoryList: [];
+  addToFavouriteList: (type: string, id: string) => void;
+  deleteFromFavouriteList: (type: string, id: string) => void;
 };
 
 export type CountMapType = {
@@ -190,10 +202,10 @@ export type CategoriesNavigatorProps = {
   dispatch: React.Dispatch<HomeActionType>;
 };
 
-export type ProductCardProps = {
+export type ItemCardProps = {
   id: string;
   index: number;
-  type: string;
+  type: TYPE;
   roasted: string;
   imagelink_square: ImageSourcePropType;
   name: string;
@@ -233,18 +245,33 @@ export type SearchResultProps = {
   resetSearchCoffee: () => void;
 };
 
-export type ItemImageProps = {
+export type ItemImageBtnsProps = {
   enableBackHandler: boolean;
-  imagelink_portrait: ImageProps;
-  type: string;
-  id: string;
   favourite: boolean;
+  type: TYPE;
+  id: string;
+  handleBackHandler: () => void;
+  handleToggleFavourite: (favourite: boolean, type: string, id: string) => void;
+};
+
+export type ProprertiesProps = {
+  type: TYPE;
+  ingredients: string;
+};
+
+export type ItemImageBottomProps = {
   name: string;
   special_ingredient: string;
   ingredients: string;
+  type: TYPE;
+};
+
+export type ItemImageProps = {
+  imagelink_portrait: ImageProps;
+  ingredients: string;
+  name: string;
+  special_ingredient: string;
   average_rating: number;
   ratings_count: string;
   roasted: string;
-  backHandler?: any;
-  toggleFavourite: any;
-};
+} & ItemImageBtnsProps;

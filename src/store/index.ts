@@ -15,7 +15,7 @@ export const useStore = create<StoreType>()(
         coffeeList: CoffeeData,
         beansList: BeansData,
         cartAmount: 0,
-        favoritesList: [],
+        favouritesList: [],
         cartList: [],
         orderHistoryList: [],
         // addToCart: (cartItem: any) =>
@@ -121,31 +121,8 @@ export const useStore = create<StoreType>()(
               state.cartPrice = totalPrice.toFixed(2).toString();
             }),
           ),
-        addToFavorite: (type: string, id: string) =>
+        addToFavouriteList: (type: string, id: string) =>
           set(
-            // produce(state => {
-            //   if (type === 'Coffee') {
-            //     for (let i = 0; i < state.coffeeList.length; i++) {
-            //       if (state.coffeeList[i].id === id) {
-            //         if (state.coffeeList[i].favourite === false) {
-            //           state.coffeeList[i].favourite = true;
-            //           state.favoritesList.unshift(state.coffeeList[i]);
-            //         }
-            //         break;
-            //       }
-            //     }
-            //   } else if (type === 'Bean') {
-            //     for (let i = 0; i < state.beansList.length; i++) {
-            //       if (state.beansList[i].id === id) {
-            //         if (state.beansList[i].favourite === false) {
-            //           state.beansList[i].favourite = true;
-            //           state.favoritesList.unshift(state.beansList[i]);
-            //         }
-            //         break;
-            //       }
-            //     }
-            //   }
-            // }),
             produce(state => {
               const targetList =
                 type === 'Coffee' ? state.coffeeList : state.beansList;
@@ -156,41 +133,12 @@ export const useStore = create<StoreType>()(
 
               if (targetItem && !targetItem.favourite) {
                 targetItem.favourite = true;
-                state.favoritesList.unshift(targetItem);
+                state.favouritesList.unshift(targetItem);
               }
             }),
           ),
-        deleteFromFavoriteList: (type: string, id: string) =>
+        deleteFromFavouriteList: (type: string, id: string) =>
           set(
-            // produce(state => {
-            //   if (type === 'Coffee') {
-            //     for (let i = 0; i < state.coffeeList.length; i++) {
-            //       if (state.coffeeList[i].id === id) {
-            //         if (state.coffeeList[i].favourite === true) {
-            //           state.coffeeList[i].favourite = false;
-            //         }
-            //         break;
-            //       }
-            //     }
-            //   } else if (type === 'Bean') {
-            //     for (let i = 0; i < state.beansList.length; i++) {
-            //       if (state.beansList[i].id === id) {
-            //         if (state.beansList[i].favourite === true) {
-            //           state.beansList[i].favourite = false;
-            //         }
-            //         break;
-            //       }
-            //     }
-            //   }
-            //   let spliceIndex = -1;
-            //   for (let i = 0; i < state.favoritesList.length; i++) {
-            //     if (state.favoritesList[i].id === id) {
-            //       spliceIndex = i;
-            //       break;
-            //     }
-            //   }
-            //   state.favoritesList.splice(spliceIndex, 1);
-            // }),
             produce(state => {
               const targetList =
                 type === 'Coffee' ? state.coffeeList : state.beansList;
@@ -203,12 +151,12 @@ export const useStore = create<StoreType>()(
                 targetItem.favourite = false;
               }
 
-              const spliceIndex = state.favoritesList.findIndex(
+              const spliceIndex = state.favouritesList.findIndex(
                 (item: DataType) => item.id === id,
               );
 
               if (spliceIndex !== -1) {
-                state.favoritesList.splice(spliceIndex, 1);
+                state.favouritesList.splice(spliceIndex, 1);
               }
             }),
           ),

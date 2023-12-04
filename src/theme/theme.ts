@@ -3,6 +3,7 @@ import { Spacing, Color, FontFamily, FontSize, BorderRadius } from '../types';
 export const SPACING: Spacing = {
   space_2: 2,
   space_4: 4,
+  space_6: 6,
   space_8: 8,
   space_10: 10,
   space_12: 12,
@@ -65,4 +66,5 @@ export const BORDERRADIUS: BorderRadius = {
   radius_15: 15,
   radius_20: 20,
   radius_25: 25,
+  radius_40: 40,
 };
