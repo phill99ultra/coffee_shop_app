@@ -1,7 +1,6 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import React from 'react';
 
-import CustomIcon from '../../../../../components/CustomIcon';
 import { ProprertiesProps } from '../../../../../types';
 import {
   BORDERRADIUS,
@@ -10,30 +9,28 @@ import {
   FONTSIZE,
   SPACING,
 } from '../../../../../theme/theme';
+import Property from './Property';
 
 const Properties = ({ type, ingredients }: ProprertiesProps) => {
   const dynamicMarginTop = type === 'Bean' ? SPACING.space_6 : 0;
+  const dynamicSize = type === 'Bean' ? FONTSIZE.size_18 : FONTSIZE.size_24;
 
   return (
     <View style={styles.PropertiesContainer}>
-      <View style={styles.Property}>
-        <CustomIcon
-          name={type === 'Bean' ? 'bean' : 'beans'}
-          size={type === 'Bean' ? FONTSIZE.size_18 : FONTSIZE.size_24}
-          color={COLORS.primaryOrangeHex}
-        />
-        <Text style={[styles.PropertyText, { marginTop: dynamicMarginTop }]}>
-          {type}
-        </Text>
-      </View>
-      <View style={styles.Property}>
-        <CustomIcon
-          name={type === 'Bean' ? 'location' : 'drop'}
-          size={FONTSIZE.size_16}
-          color={COLORS.primaryOrangeHex}
-        />
-        <Text style={styles.PropertyText}>{ingredients}</Text>
-      </View>
+      <Property
+        type={type}
+        propertyText={type}
+        size={dynamicSize}
+        iconType={{ bean: 'bean', beans: 'beans' }}
+        dynamicMarginTop={dynamicMarginTop}
+      />
+      <Property
+        type={type}
+        propertyText={ingredients}
+        size={FONTSIZE.size_16}
+        iconType={{ bean: 'location', beans: 'drop' }}
+        dynamicMarginTop={SPACING.space_6}
+      />
     </View>
   );
 };

@@ -254,17 +254,35 @@ export type ItemImageBtnsProps = {
   handleToggleFavourite: (favourite: boolean, type: string, id: string) => void;
 };
 
+type IconType = {
+  bean: string;
+  beans: string;
+};
+
+export type PropertyProps = {
+  type: TYPE;
+  propertyText: string | TYPE;
+  size: number;
+  dynamicMarginTop: number;
+  iconType: IconType;
+};
+
 export type ProprertiesProps = {
   type: TYPE;
   ingredients: string;
 };
 
+export type RatingProps = {
+  average_rating: number;
+  ratings_count: string;
+};
+
 export type ItemImageBottomProps = {
   name: string;
   special_ingredient: string;
-  ingredients: string;
-  type: TYPE;
-};
+  roasted: string;
+} & ProprertiesProps &
+  RatingProps;
 
 export type ItemImageProps = {
   imagelink_portrait: ImageProps;

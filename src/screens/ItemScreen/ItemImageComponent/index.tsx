@@ -38,6 +38,9 @@ const ItemImageComponent = ({
           special_ingredient={special_ingredient}
           ingredients={ingredients}
           type={type}
+          average_rating={average_rating}
+          ratings_count={ratings_count}
+          roasted={roasted}
         />
       </ImageBackground>
     </View>
