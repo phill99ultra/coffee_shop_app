@@ -20,6 +20,8 @@ export interface Spacing {
   space_30: number;
   space_32: number;
   space_36: number;
+  space_48: number;
+  space_72: number;
 }
 
 export interface Color {
@@ -91,11 +93,18 @@ export type RootStackParamList = {
 // NAVIGATION TYPES FOR SCREENS
 type HomeScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Home'>;
 type HomeScreenRouteProp = RouteProp<RootStackParamList, 'Home'>;
+
 export type ItemScreenNavigationProp = StackNavigationProp<
   RootStackParamList,
   'Item'
 >;
 type ItemScreenRouteProp = RouteProp<RootStackParamList, 'Item'>;
+
+export type CartScreenNavigationProp = StackNavigationProp<
+  RootStackParamList,
+  'Cart'
+>;
+type CartScreenRouteProp = RouteProp<RootStackParamList, 'Cart'>;
 
 // TYPES IN SCREEN COMPONENTS
 export type ItemScreenProps = {
@@ -108,6 +117,11 @@ export type HomeScreenProps = {
   route: HomeScreenRouteProp;
 };
 
+export type CartScreenProps = {
+  navigation: CartScreenNavigationProp;
+  route: CartScreenRouteProp;
+};
+
 export type TabType = {
   id: number;
   screenName: keyof RootStackParamList;
@@ -116,8 +130,7 @@ export type TabType = {
 };
 
 // OTHER TYPES
-
-enum TYPE {
+export enum TYPE {
   BEAN = 'Bean',
   COFFEE = 'Coffee',
 }
@@ -147,6 +160,17 @@ export type DataType = {
   item_price?: string;
 };
 
+export type CartItem = {
+  id: string;
+  index: number;
+  name: string;
+  roasted: string;
+  imagelink_square: ImageProps;
+  special_ingredient: string;
+  type: TYPE;
+  prices: PriceType[];
+};
+
 export type StoreType = {
   coffeeList: DataType[];
   beansList: DataType[];
@@ -156,27 +180,38 @@ export type StoreType = {
   orderHistoryList: [];
   addToFavouriteList: (type: string, id: string) => void;
   deleteFromFavouriteList: (type: string, id: string) => void;
+  addToCart: (item: CartItem) => void;
+  calculateCartPrice: () => void;
 };
 
 export type CountMapType = {
   [key: string]: number;
 };
 
+// TYPES FOR REDUCERS
 export type HomeActionType =
   | { type: 'SET_CATEGORIES'; payload: string[] }
   | { type: 'SET_SEARCH_TEXT'; payload: string }
   | { type: 'SET_CATEGORY_INDEX'; payload: { index: number; category: string } }
   | { type: 'SET_SORTED_COFFEE'; payload: DataType[] };
 
-export type InitialStateType = {
+export type ItemActionType =
+  | { type: 'SET_FULL_DESCRIPTION'; payload: boolean }
+  | { type: 'SET_PRICE'; payload: PriceType };
+
+export type InitialHomeStateType = {
   categories: string[];
   searchText: string;
   categoryIndex: { index: number; category: string };
   sortedCoffee: DataType[];
 };
 
-// TYPES FOR PROPS //
+export type InitialItemStateType = {
+  fullDescription: boolean;
+  price: PriceType;
+};
 
+// TYPES FOR PROPS //
 export type SearchInputProps = {
   searchText: string;
   dispatch: React.Dispatch<HomeActionType>;
@@ -293,3 +328,55 @@ export type ItemImageProps = {
   ratings_count: string;
   roasted: string;
 } & ItemImageBtnsProps;
+
+export type DescriptionProps = {
+  fullDescription: boolean;
+  description: string;
+  dispatch: React.Dispatch<ItemActionType>;
+};
+
+export type SizeProps = {
+  prices: PriceType[];
+  type: TYPE;
+  itemPrice: PriceType;
+  dispatch: React.Dispatch<ItemActionType>;
+};
+
+export type PriceProps = {
+  type: TYPE;
+  size: string;
+  price: string;
+  currency: string;
+  itemPrice: PriceType;
+  dispatch: React.Dispatch<ItemActionType>;
+};
+
+export type ItemInfoAreaProps = {
+  prices: PriceType[];
+  type: TYPE;
+  itemPrice: PriceType;
+  dispatch: React.Dispatch<ItemActionType>;
+} & DescriptionProps;
+
+type ItemToCart = {
+  id: string;
+  index: number;
+  name: string;
+  roasted: string;
+  imagelink_square: ImageProps;
+  special_ingredient: string;
+  type: TYPE;
+  price: PriceType;
+};
+
+export type HandleAddToCartFunction = (
+  item: ItemToCart,
+  navigation: ItemScreenNavigationProp,
+) => void;
+
+export type ItemPaymentProps = {
+  itemPrice: string;
+  currency: string;
+  title: string;
+  handleAddToCart: () => void;
+};

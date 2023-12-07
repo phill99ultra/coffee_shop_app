@@ -1,15 +1,15 @@
 import { StyleSheet, TextInput, TouchableOpacity, View } from 'react-native';
 import React from 'react';
 
-import CustomIcon from '../CustomIcon';
+import CustomIcon from '../../../components/CustomIcon';
 import {
   SPACING,
   BORDERRADIUS,
   COLORS,
   FONTSIZE,
   FONTFAMILY,
-} from '../../theme/theme';
-import { SearchInputProps } from '../../types';
+} from '../../../theme/theme';
+import { SearchInputProps } from '../../../types';
 import SearchResult from './SearchResult';
 
 const SearchInputContainer = ({

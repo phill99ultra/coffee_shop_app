@@ -2,7 +2,9 @@ import {
   DataType,
   CountMapType,
   HomeActionType,
-  InitialStateType,
+  ItemActionType,
+  InitialHomeStateType,
+  InitialItemStateType,
 } from '../types';
 
 export function getCategoriesFromData(data: DataType[]) {
@@ -31,9 +33,9 @@ export function getCoffeeList(category: string, data: DataType[]) {
 }
 
 export function homeReducer(
-  state: InitialStateType,
+  state: InitialHomeStateType,
   action: HomeActionType,
-): InitialStateType {
+): InitialHomeStateType {
   switch (action.type) {
     case 'SET_CATEGORIES':
       return { ...state, categories: action.payload };
@@ -55,4 +57,18 @@ export function filterCoffeeList(
   return list.filter((item: DataType) =>
     item.name.toLowerCase().includes(searchText.toLowerCase()),
   );
+}
+
+export function itemReducer(
+  state: InitialItemStateType,
+  action: ItemActionType,
+): InitialItemStateType {
+  switch (action.type) {
+    case 'SET_FULL_DESCRIPTION':
+      return { ...state, fullDescription: action.payload };
+    case 'SET_PRICE':
+      return { ...state, price: action.payload };
+    default:
+      return state;
+  }
 }

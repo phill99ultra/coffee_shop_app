@@ -1,4 +1,4 @@
-import { DataType } from '../types';
+import { DataType, TYPE } from '../types';
 
 const BeansData: DataType[] = [
   {
@@ -19,7 +19,7 @@ const BeansData: DataType[] = [
     average_rating: 4.7,
     ratings_count: '6,879',
     favourite: false,
-    type: 'Bean',
+    type: TYPE.BEAN,
     index: 0,
   },
   {
@@ -40,7 +40,7 @@ const BeansData: DataType[] = [
     average_rating: 4.7,
     ratings_count: '6,879',
     favourite: false,
-    type: 'Bean',
+    type: TYPE.BEAN,
     index: 1,
   },
   {
@@ -61,7 +61,7 @@ const BeansData: DataType[] = [
     average_rating: 4.7,
     ratings_count: '6,879',
     favourite: false,
-    type: 'Bean',
+    type: TYPE.BEAN,
     index: 2,
   },
   {
@@ -82,7 +82,7 @@ const BeansData: DataType[] = [
     average_rating: 4.7,
     ratings_count: '6,879',
     favourite: false,
-    type: 'Bean',
+    type: TYPE.BEAN,
     index: 3,
   },
 ];

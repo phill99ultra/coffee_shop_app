@@ -13,9 +13,9 @@ import {
   FONTFAMILY,
   FONTSIZE,
   SPACING,
-} from '../../../../theme/theme';
-import CustomIcon from '../../../CustomIcon';
-import { CardImageProps } from '../../../../types';
+} from '../../../../../theme/theme';
+import CustomIcon from '../../../../../components/CustomIcon';
+import { CardImageProps } from '../../../../../types';
 
 const CARD_WIDTH = Dimensions.get('window').width * 0.32;
 

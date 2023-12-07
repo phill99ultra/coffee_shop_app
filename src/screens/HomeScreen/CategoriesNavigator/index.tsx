@@ -7,15 +7,15 @@ import {
 } from 'react-native';
 import React from 'react';
 
-import { CategoriesNavigatorProps } from '../../types';
+import { CategoriesNavigatorProps } from '../../../types';
 import {
   BORDERRADIUS,
   COLORS,
   FONTFAMILY,
   FONTSIZE,
   SPACING,
-} from '../../theme/theme';
-import { getCoffeeList } from '../../helpers';
+} from '../../../theme/theme';
+import { getCoffeeList } from '../../../helpers';
 
 const CategoriesNavigator = ({
   listRef,

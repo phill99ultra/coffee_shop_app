@@ -5,12 +5,15 @@ import {
   SafeAreaView,
   StatusBar,
 } from 'react-native';
-import React from 'react';
+import React, { useReducer } from 'react';
 
-import { ItemScreenProps } from '../../types';
+import { InitialItemStateType, ItemScreenProps } from '../../types';
 import { COLORS } from '../../theme/theme';
-import ItemImageComponent from './ItemImageComponent';
+import ItemImage from './ItemImage';
+import ItemInfoArea from './ItemInfoArea';
+import ItemPayment from './ItemPayment';
 import useItemDetails from './hooks';
+import { itemReducer } from '../../helpers';
 
 function ItemScreen({ navigation, route }: ItemScreenProps) {
   const { index: indexParam, type: typeParam } = route.params || {
@@ -18,21 +21,38 @@ function ItemScreen({ navigation, route }: ItemScreenProps) {
     type: '',
   };
 
-  const { GetItemOfIndex, handleNavigateBack, handleToggleFavourite } =
-    useItemDetails();
+  const {
+    GetItemOfIndex,
+    handleNavigateBack,
+    handleToggleFavourite,
+    handleAddToCart,
+  } = useItemDetails();
 
   const {
     imagelink_portrait,
     type: typeOfItem,
     id: idOfItem,
     favourite: favouriteOfItem,
+    index: indexOfItem,
     name,
+    imagelink_square,
     special_ingredient,
     ingredients,
     average_rating,
     ratings_count,
     roasted,
+    description,
+    prices,
   } = GetItemOfIndex(indexParam, typeParam);
+
+  const INITIAL_STATE: InitialItemStateType = {
+    fullDescription: false,
+    price: prices[0],
+  };
+
+  const [state, dispatch] = useReducer(itemReducer, INITIAL_STATE);
+  const { fullDescription, price } = state;
+  const { price: itemPrice, currency } = price;
 
   return (
     <SafeAreaView style={styles.SafeAreaContainer}>
@@ -41,7 +61,7 @@ function ItemScreen({ navigation, route }: ItemScreenProps) {
         <ScrollView
           showsVerticalScrollIndicator={false}
           contentContainerStyle={styles.ScrollViewFlex}>
-          <ItemImageComponent
+          <ItemImage
             enableBackHandler={true}
             imagelink_portrait={imagelink_portrait}
             type={typeOfItem}
@@ -55,6 +75,34 @@ function ItemScreen({ navigation, route }: ItemScreenProps) {
             roasted={roasted}
             handleBackHandler={handleNavigateBack(navigation)}
             handleToggleFavourite={handleToggleFavourite}
+          />
+          <ItemInfoArea
+            fullDescription={fullDescription}
+            description={description}
+            dispatch={dispatch}
+            prices={prices}
+            itemPrice={price}
+            type={typeOfItem}
+          />
+          <ItemPayment
+            itemPrice={itemPrice}
+            currency={currency}
+            title="Add to Cart"
+            handleAddToCart={() =>
+              handleAddToCart(
+                {
+                  id: idOfItem,
+                  index: indexOfItem,
+                  name: name,
+                  roasted: roasted,
+                  imagelink_square: imagelink_square,
+                  special_ingredient: special_ingredient,
+                  type: typeOfItem,
+                  price: price,
+                },
+                navigation,
+              )
+            }
           />
         </ScrollView>
       </View>
@@ -73,6 +121,7 @@ const styles = StyleSheet.create({
   },
   ScrollViewFlex: {
     flexGrow: 1,
+    justifyContent: 'space-between',
   },
 });
 

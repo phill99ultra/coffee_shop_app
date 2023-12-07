@@ -1,7 +1,12 @@
 import { Text, View } from 'react-native';
 import React from 'react';
 
+import { useStore } from '../../store';
+import { StoreType } from '../../types';
+
 function CartScreen() {
+  const cartList = useStore((state: StoreType) => state.cartList);
+  console.log('cart list ', cartList);
   return (
     <View>
       <Text>CartScreen</Text>

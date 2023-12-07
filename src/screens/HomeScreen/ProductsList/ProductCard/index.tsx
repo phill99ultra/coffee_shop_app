@@ -1,7 +1,7 @@
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import React from 'react';
 
-import { ItemCardProps } from '../../../types';
+import { ItemCardProps } from '../../../../types';
 import LinearGradient from 'react-native-linear-gradient';
 import {
   BORDERRADIUS,
@@ -9,7 +9,7 @@ import {
   FONTFAMILY,
   FONTSIZE,
   SPACING,
-} from '../../../theme/theme';
+} from '../../../../theme/theme';
 import CardImage from './CardImage';
 import CardBottom from './CardBottom';
 

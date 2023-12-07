@@ -2,10 +2,10 @@ import { StyleSheet, View, ImageBackground } from 'react-native';
 import React from 'react';
 
 import { ItemImageProps } from '../../../types';
-import ItemImageBtns from './ItemImageBtns';
-import ItemImageBottom from './ItemImageBottom';
+import ImageBtns from './ImageBtns';
+import ImageBottom from './ImageBottom';
 
-const ItemImageComponent = ({
+const ItemImage = ({
   enableBackHandler,
   imagelink_portrait,
   type,
@@ -25,7 +25,7 @@ const ItemImageComponent = ({
       <ImageBackground
         style={styles.ItemBackgroundImage}
         source={imagelink_portrait}>
-        <ItemImageBtns
+        <ImageBtns
           enableBackHandler={enableBackHandler}
           favourite={favourite}
           type={type}
@@ -33,7 +33,7 @@ const ItemImageComponent = ({
           handleBackHandler={handleBackHandler}
           handleToggleFavourite={handleToggleFavourite}
         />
-        <ItemImageBottom
+        <ImageBottom
           name={name}
           special_ingredient={special_ingredient}
           ingredients={ingredients}
@@ -55,4 +55,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ItemImageComponent;
+export default ItemImage;

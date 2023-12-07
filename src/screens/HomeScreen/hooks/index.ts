@@ -7,7 +7,7 @@ import {
   homeReducer,
   filterCoffeeList,
 } from '../../../helpers';
-import { StoreType, InitialStateType } from '../../../types';
+import { StoreType, InitialHomeStateType } from '../../../types';
 import { useStore } from '../../../store';
 
 const useHome = () => {
@@ -21,7 +21,7 @@ const useHome = () => {
   const sortedCoffee = getCoffeeList(categoryIndex.category, coffeeList);
   const listRef = useRef<FlatList>();
 
-  const INITIAL_STATE: InitialStateType = {
+  const INITIAL_STATE: InitialHomeStateType = {
     categories: categories,
     searchText: '',
     categoryIndex: categoryIndex,

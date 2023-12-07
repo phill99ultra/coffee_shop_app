@@ -5,7 +5,7 @@ import GradientIcon from '../../../../components/GradientBGIcon';
 import { COLORS, FONTSIZE, SPACING } from '../../../../theme/theme';
 import { ItemImageBtnsProps } from '../../../../types';
 
-const ItemImageBtns = ({
+const ImageBtns = ({
   enableBackHandler,
   favourite,
   type,
@@ -53,4 +53,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ItemImageBtns;
+export default ImageBtns;

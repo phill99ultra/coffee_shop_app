@@ -1,9 +1,9 @@
 import { StyleSheet, TouchableOpacity } from 'react-native';
 import React from 'react';
 
-import CustomIcon from '../../CustomIcon';
-import { COLORS, FONTSIZE } from '../../../theme/theme';
-import { SearchResultProps } from '../../../types';
+import CustomIcon from '../../../../components/CustomIcon';
+import { COLORS, FONTSIZE } from '../../../../theme/theme';
+import { SearchResultProps } from '../../../../types';
 
 const SearchResult = ({ resetSearchCoffee }: SearchResultProps) => {
   return (

@@ -1,4 +1,4 @@
-import { DataType } from '../types';
+import { DataType, TYPE } from '../types';
 
 const CoffeeData: DataType[] = [
   {
@@ -19,7 +19,7 @@ const CoffeeData: DataType[] = [
     average_rating: 4.7,
     ratings_count: '6,879',
     favourite: false,
-    type: 'Coffee',
+    type: TYPE.COFFEE,
     index: 0,
   },
   {
@@ -40,7 +40,7 @@ const CoffeeData: DataType[] = [
     average_rating: 4.7,
     ratings_count: '6,879',
     favourite: false,
-    type: 'Coffee',
+    type: TYPE.COFFEE,
     index: 1,
   },
   {
@@ -61,7 +61,7 @@ const CoffeeData: DataType[] = [
     average_rating: 4.7,
     ratings_count: '6,879',
     favourite: false,
-    type: 'Coffee',
+    type: TYPE.COFFEE,
     index: 2,
   },
   {
@@ -82,7 +82,7 @@ const CoffeeData: DataType[] = [
     average_rating: 4.7,
     ratings_count: '6,879',
     favourite: false,
-    type: 'Coffee',
+    type: TYPE.COFFEE,
     index: 3,
   },
   {
@@ -103,7 +103,7 @@ const CoffeeData: DataType[] = [
     average_rating: 4.7,
     ratings_count: '6,879',
     favourite: false,
-    type: 'Coffee',
+    type: TYPE.COFFEE,
     index: 4,
   },
   {
@@ -124,7 +124,7 @@ const CoffeeData: DataType[] = [
     average_rating: 4.7,
     ratings_count: '6,879',
     favourite: false,
-    type: 'Coffee',
+    type: TYPE.COFFEE,
     index: 5,
   },
   {
@@ -145,7 +145,7 @@ const CoffeeData: DataType[] = [
     average_rating: 4.7,
     ratings_count: '6,879',
     favourite: false,
-    type: 'Coffee',
+    type: TYPE.COFFEE,
     index: 6,
   },
   {
@@ -166,7 +166,7 @@ const CoffeeData: DataType[] = [
     average_rating: 4.7,
     ratings_count: '6,879',
     favourite: false,
-    type: 'Coffee',
+    type: TYPE.COFFEE,
     index: 7,
   },
   {
@@ -187,7 +187,7 @@ const CoffeeData: DataType[] = [
     average_rating: 4.7,
     ratings_count: '6,879',
     favourite: false,
-    type: 'Coffee',
+    type: TYPE.COFFEE,
     index: 8,
   },
   {
@@ -208,7 +208,7 @@ const CoffeeData: DataType[] = [
     average_rating: 4.7,
     ratings_count: '6,879',
     favourite: false,
-    type: 'Coffee',
+    type: TYPE.COFFEE,
     index: 9,
   },
   {
@@ -229,7 +229,7 @@ const CoffeeData: DataType[] = [
     average_rating: 4.7,
     ratings_count: '6,879',
     favourite: false,
-    type: 'Coffee',
+    type: TYPE.COFFEE,
     index: 10,
   },
   {
@@ -250,7 +250,7 @@ const CoffeeData: DataType[] = [
     average_rating: 4.7,
     ratings_count: '6,879',
     favourite: false,
-    type: 'Coffee',
+    type: TYPE.COFFEE,
     index: 11,
   },
   {
@@ -271,7 +271,7 @@ const CoffeeData: DataType[] = [
     average_rating: 4.7,
     ratings_count: '6,879',
     favourite: false,
-    type: 'Coffee',
+    type: TYPE.COFFEE,
     index: 12,
   },
   {
@@ -292,7 +292,7 @@ const CoffeeData: DataType[] = [
     average_rating: 4.7,
     ratings_count: '6,879',
     favourite: false,
-    type: 'Coffee',
+    type: TYPE.COFFEE,
     index: 13,
   },
   {
@@ -313,7 +313,7 @@ const CoffeeData: DataType[] = [
     average_rating: 4.7,
     ratings_count: '6,879',
     favourite: false,
-    type: 'Coffee',
+    type: TYPE.COFFEE,
     index: 14,
   },
   {
@@ -334,7 +334,7 @@ const CoffeeData: DataType[] = [
     average_rating: 4.7,
     ratings_count: '6,879',
     favourite: false,
-    type: 'Coffee',
+    type: TYPE.COFFEE,
     index: 15,
   },
   {
@@ -355,7 +355,7 @@ const CoffeeData: DataType[] = [
     average_rating: 4.7,
     ratings_count: '6,879',
     favourite: false,
-    type: 'Coffee',
+    type: TYPE.COFFEE,
     index: 16,
   },
   {
@@ -376,7 +376,7 @@ const CoffeeData: DataType[] = [
     average_rating: 4.7,
     ratings_count: '6,879',
     favourite: false,
-    type: 'Coffee',
+    type: TYPE.COFFEE,
     index: 17,
   },
 ];

@@ -1,9 +1,9 @@
 import { FlatList, StyleSheet } from 'react-native';
 import React from 'react';
 
-import { SPACING } from '../../theme/theme';
+import { SPACING } from '../../../theme/theme';
 import ProductCard from './ProductCard';
-import { ProductsListProps } from '../../types';
+import { ProductsListProps } from '../../../types';
 import EmptyList from './EmptyList';
 
 const ProductsList = ({

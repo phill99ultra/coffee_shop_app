@@ -12,7 +12,7 @@ import {
   SPACING,
 } from '../../../../theme/theme';
 
-const ItemImageBottom = ({
+const ImageBottom = ({
   name,
   special_ingredient,
   type,
@@ -87,4 +87,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ItemImageBottom;
+export default ImageBottom;

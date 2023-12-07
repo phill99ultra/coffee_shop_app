@@ -12,9 +12,9 @@ import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
 import useHome from './hooks';
 import { COLORS, FONTFAMILY, FONTSIZE, SPACING } from '../../theme/theme';
 import HeaderBar from '../../components/HeaderBar';
-import SearchInputContainer from '../../components/SearchInputContainer';
-import CategoriesNavigator from '../../components/CategoriesNavigator';
-import ProductsList from '../../components/ProductsList';
+import SearchInputContainer from './SearchInputContainer';
+import CategoriesNavigator from './CategoriesNavigator';
+import ProductsList from './ProductsList';
 import { ItemScreenProps } from '../../types';
 
 function HomeScreen({ navigation }: ItemScreenProps) {
