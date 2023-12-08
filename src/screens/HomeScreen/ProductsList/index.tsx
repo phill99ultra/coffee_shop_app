@@ -3,7 +3,7 @@ import React from 'react';
 
 import { SPACING } from '../../../theme/theme';
 import ProductCard from './ProductCard';
-import { ProductsListProps } from '../../../types';
+import { ProductsListProps } from '../../../types/screens/home';
 import EmptyList from './EmptyList';
 
 const ProductsList = ({

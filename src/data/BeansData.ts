@@ -1,4 +1,4 @@
-import { DataType, TYPE } from '../types';
+import { DataType, TYPE } from '../types/data';
 
 const BeansData: DataType[] = [
   {

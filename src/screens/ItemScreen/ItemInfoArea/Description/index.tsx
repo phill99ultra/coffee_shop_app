@@ -2,7 +2,7 @@ import { StyleSheet, Text, TouchableWithoutFeedback } from 'react-native';
 import React from 'react';
 
 import { FONTFAMILY, FONTSIZE, COLORS, SPACING } from '../../../../theme/theme';
-import { DescriptionProps } from '../../../../types';
+import { DescriptionProps } from '../../../../types/screens/item';
 
 const Description = ({
   fullDescription,

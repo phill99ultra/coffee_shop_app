@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View } from 'react-native';
 import React from 'react';
 
-import { ItemInfoAreaProps } from '../../../types';
+import { ItemInfoAreaProps } from '../../../types/screens/item';
 import Description from './Description';
 import Size from './Size';
 import { COLORS, FONTFAMILY, FONTSIZE, SPACING } from '../../../theme/theme';

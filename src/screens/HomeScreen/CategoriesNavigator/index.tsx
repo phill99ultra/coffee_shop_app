@@ -7,7 +7,7 @@ import {
 } from 'react-native';
 import React from 'react';
 
-import { CategoriesNavigatorProps } from '../../../types';
+import { CategoriesNavigatorProps } from '../../../types/screens/home';
 import {
   BORDERRADIUS,
   COLORS,

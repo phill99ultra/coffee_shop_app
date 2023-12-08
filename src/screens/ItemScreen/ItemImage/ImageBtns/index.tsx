@@ -3,7 +3,7 @@ import React from 'react';
 
 import GradientIcon from '../../../../components/GradientBGIcon';
 import { COLORS, FONTSIZE, SPACING } from '../../../../theme/theme';
-import { ItemImageBtnsProps } from '../../../../types';
+import { ItemImageBtnsProps } from '../../../../types/screens/item';
 
 const ImageBtns = ({
   enableBackHandler,

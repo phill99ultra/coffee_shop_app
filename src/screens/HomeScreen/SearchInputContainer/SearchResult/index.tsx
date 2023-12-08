@@ -3,7 +3,7 @@ import React from 'react';
 
 import CustomIcon from '../../../../components/CustomIcon';
 import { COLORS, FONTSIZE } from '../../../../theme/theme';
-import { SearchResultProps } from '../../../../types';
+import { SearchResultProps } from '../../../../types/screens/home';
 
 const SearchResult = ({ resetSearchCoffee }: SearchResultProps) => {
   return (

@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import React from 'react';
 
-import { ItemPaymentProps } from '../../../types';
+import { ItemPaymentProps } from '../../../types/screens/item';
 import {
   BORDERRADIUS,
   COLORS,

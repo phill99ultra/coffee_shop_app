@@ -15,7 +15,7 @@ import HeaderBar from '../../components/HeaderBar';
 import SearchInputContainer from './SearchInputContainer';
 import CategoriesNavigator from './CategoriesNavigator';
 import ProductsList from './ProductsList';
-import { ItemScreenProps } from '../../types';
+import { ItemScreenProps } from '../../types/navigation';
 
 function HomeScreen({ navigation }: ItemScreenProps) {
   const {

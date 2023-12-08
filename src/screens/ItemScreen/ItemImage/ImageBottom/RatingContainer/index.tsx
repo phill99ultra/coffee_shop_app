@@ -8,7 +8,7 @@ import {
   FONTSIZE,
   SPACING,
 } from '../../../../../theme/theme';
-import { RatingProps } from '../../../../../types';
+import { RatingProps } from '../../../../../types/screens/item';
 
 const RatingContainer = ({ average_rating, ratings_count }: RatingProps) => {
   return (

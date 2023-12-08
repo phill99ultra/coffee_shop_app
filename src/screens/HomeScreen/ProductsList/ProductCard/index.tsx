@@ -1,7 +1,7 @@
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import React from 'react';
 
-import { ItemCardProps } from '../../../../types';
+import { ItemCardProps } from '../../../../types/screens/home';
 import LinearGradient from 'react-native-linear-gradient';
 import {
   BORDERRADIUS,

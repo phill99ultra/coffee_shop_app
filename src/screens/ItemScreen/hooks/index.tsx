@@ -1,8 +1,5 @@
-import {
-  ItemScreenNavigationProp,
-  StoreType,
-  HandleAddToCartFunction,
-} from '../../../types';
+import { ItemScreenNavigationProp } from '../../../types/navigation';
+import { StoreType } from '../../../types/data';
 import { useStore } from '../../../store';
 
 const useItemDetails = () => {
@@ -10,8 +7,6 @@ const useItemDetails = () => {
   const deleteFromFavouriteList = useStore(
     state => state.deleteFromFavouriteList,
   );
-  const addToCart = useStore(state => state.addToCart);
-  const calculateCartPrice = useStore(state => state.calculateCartPrice);
 
   // Had to rename state to store to avoid warning with state declared in useReducer hook below
   function GetItemOfIndex(index: number, type: string) {
@@ -30,14 +25,6 @@ const useItemDetails = () => {
     };
   }
 
-  function handleNavigateToCart(
-    navigation: ItemScreenNavigationProp,
-  ): () => void {
-    return () => {
-      navigation.navigate('Cart');
-    };
-  }
-
   const handleToggleFavourite = (
     favourite: boolean,
     type: string,
@@ -48,38 +35,10 @@ const useItemDetails = () => {
       : addToFavouriteList(type, id);
   };
 
-  const handleAddToCart: HandleAddToCartFunction = (
-    {
-      id,
-      index,
-      name,
-      roasted,
-      imagelink_square,
-      special_ingredient,
-      type,
-      price,
-    },
-    navigation: ItemScreenNavigationProp,
-  ) => {
-    addToCart({
-      id,
-      index,
-      name,
-      roasted,
-      imagelink_square,
-      special_ingredient,
-      type,
-      prices: [{ ...price, quantity: 1 }],
-    });
-    calculateCartPrice();
-    handleNavigateToCart(navigation)();
-  };
-
   return {
     GetItemOfIndex,
     handleNavigateBack,
     handleToggleFavourite,
-    handleAddToCart,
   };
 };
 

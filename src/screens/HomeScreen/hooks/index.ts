@@ -7,7 +7,8 @@ import {
   homeReducer,
   filterCoffeeList,
 } from '../../../helpers';
-import { StoreType, InitialHomeStateType } from '../../../types';
+import { InitialHomeStateType } from '../../../types/reducers';
+import { StoreType } from '../../../types/data';
 import { useStore } from '../../../store';
 
 const useHome = () => {

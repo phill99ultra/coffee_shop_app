@@ -1,7 +1,8 @@
 import { StyleSheet, View } from 'react-native';
 import React from 'react';
 
-import { PriceType, SizeProps } from '../../../../types';
+import { SizeProps } from '../../../../types/screens/item';
+import { PriceType } from '../../../../types/data';
 import Price from './Price';
 import { SPACING } from '../../../../theme/theme';
 

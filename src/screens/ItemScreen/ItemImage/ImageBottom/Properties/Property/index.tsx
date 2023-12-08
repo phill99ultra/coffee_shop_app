@@ -8,7 +8,7 @@ import {
   BORDERRADIUS,
   FONTFAMILY,
 } from '../../../../../../theme/theme';
-import { PropertyProps } from '../../../../../../types';
+import { PropertyProps } from '../../../../../../types/screens/item';
 
 const Property = ({
   type,

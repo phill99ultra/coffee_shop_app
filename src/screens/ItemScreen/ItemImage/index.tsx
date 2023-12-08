@@ -1,7 +1,7 @@
 import { StyleSheet, View, ImageBackground } from 'react-native';
 import React from 'react';
 
-import { ItemImageProps } from '../../../types';
+import { ItemImageProps } from '../../../types/screens/item';
 import ImageBtns from './ImageBtns';
 import ImageBottom from './ImageBottom';
 

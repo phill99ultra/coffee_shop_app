@@ -2,7 +2,7 @@ import HomeScreen from '../screens/HomeScreen';
 import CartScreen from '../screens/CartScreen';
 import FavoriteScreen from '../screens/FavoriteScreen';
 import OrderHistoryScreen from '../screens/OrderHistoryScreen';
-import { TabType } from '../types';
+import { TabType } from '../types/navigation';
 
 export const TAB_VALUES: TabType[] = [
   {

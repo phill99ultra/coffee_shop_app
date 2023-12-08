@@ -1,7 +1,7 @@
 import { StyleSheet, View } from 'react-native';
 import React from 'react';
 
-import { BGIconProps } from '../../../../../types';
+import { BGIconProps } from '../../../../../types/screens/home';
 import { BORDERRADIUS, SPACING } from '../../../../../theme/theme';
 import CustomIcon from '../../../../../components/CustomIcon';
 

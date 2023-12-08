@@ -6,6 +6,7 @@ import { BlurView } from '@react-native-community/blur';
 import CustomIcon from '../../components/CustomIcon';
 import { COLORS } from '../../theme/theme';
 import { TAB_VALUES } from '../../constants';
+import { TabType } from '../../types/navigation';
 
 const Tab = createBottomTabNavigator();
 
@@ -25,7 +26,7 @@ function TabNavigator() {
           />
         ),
       }}>
-      {TAB_VALUES.map(element => (
+      {TAB_VALUES.map((element: TabType) => (
         <Tab.Screen
           key={element.id}
           name={element.screenName}

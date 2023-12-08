@@ -1,11 +1,11 @@
+import { DataType, CountMapType } from '../types/data';
+
 import {
-  DataType,
-  CountMapType,
   HomeActionType,
   ItemActionType,
   InitialHomeStateType,
   InitialItemStateType,
-} from '../types';
+} from '../types/reducers';
 
 export function getCategoriesFromData(data: DataType[]) {
   const temp: CountMapType = {};

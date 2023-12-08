@@ -1,7 +1,7 @@
 import { StyleSheet, Text, TouchableOpacity } from 'react-native';
 import React from 'react';
 
-import { PriceProps } from '../../../../../types';
+import { PriceProps } from '../../../../../types/screens/item';
 import {
   BORDERRADIUS,
   COLORS,

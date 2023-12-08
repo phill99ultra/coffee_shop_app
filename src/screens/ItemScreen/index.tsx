@@ -7,13 +7,15 @@ import {
 } from 'react-native';
 import React, { useReducer } from 'react';
 
-import { InitialItemStateType, ItemScreenProps } from '../../types';
+import { InitialItemStateType } from '../../types/reducers';
+import { ItemScreenProps } from '../../types/navigation';
 import { COLORS } from '../../theme/theme';
 import ItemImage from './ItemImage';
 import ItemInfoArea from './ItemInfoArea';
 import ItemPayment from './ItemPayment';
 import useItemDetails from './hooks';
 import { itemReducer } from '../../helpers';
+import { useAddToCart } from '../../hooks/useAddToCart';
 
 function ItemScreen({ navigation, route }: ItemScreenProps) {
   const { index: indexParam, type: typeParam } = route.params || {
@@ -21,12 +23,9 @@ function ItemScreen({ navigation, route }: ItemScreenProps) {
     type: '',
   };
 
-  const {
-    GetItemOfIndex,
-    handleNavigateBack,
-    handleToggleFavourite,
-    handleAddToCart,
-  } = useItemDetails();
+  const { GetItemOfIndex, handleNavigateBack, handleToggleFavourite } =
+    useItemDetails();
+  const { handleAddToCart } = useAddToCart();
 
   const {
     imagelink_portrait,

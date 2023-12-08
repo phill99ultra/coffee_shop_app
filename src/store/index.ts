@@ -5,7 +5,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import CoffeeData from '../data/CoffeeData';
 import BeansData from '../data/BeansData';
-import { StoreType, PriceType, DataType, CartItem } from '../types';
+import { StoreType, PriceType, DataType, CartItem } from '../types/data';
 
 export const useStore = create<StoreType>()(
   devtools(

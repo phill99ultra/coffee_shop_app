@@ -1,7 +1,7 @@
 import { StyleSheet, View } from 'react-native';
 import React from 'react';
 
-import { ProprertiesProps } from '../../../../../types';
+import { ProprertiesProps } from '../../../../../types/screens/item';
 import {
   BORDERRADIUS,
   COLORS,

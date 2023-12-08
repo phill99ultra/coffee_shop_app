@@ -15,7 +15,7 @@ import {
   SPACING,
 } from '../../../../../theme/theme';
 import CustomIcon from '../../../../../components/CustomIcon';
-import { CardImageProps } from '../../../../../types';
+import { CardImageProps } from '../../../../../types/screens/home';
 
 const CARD_WIDTH = Dimensions.get('window').width * 0.32;
 

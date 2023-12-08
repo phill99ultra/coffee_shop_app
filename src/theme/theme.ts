@@ -1,4 +1,10 @@
-import { Spacing, Color, FontFamily, FontSize, BorderRadius } from '../types';
+import {
+  Spacing,
+  Color,
+  FontFamily,
+  FontSize,
+  BorderRadius,
+} from '../types/styles';
 
 export const SPACING: Spacing = {
   space_2: 2,

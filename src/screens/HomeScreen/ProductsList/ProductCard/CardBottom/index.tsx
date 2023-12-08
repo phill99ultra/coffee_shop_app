@@ -8,7 +8,7 @@ import {
   SPACING,
 } from '../../../../../theme/theme';
 import BGIcon from '../BGIcon';
-import { CardBottomProps } from '../../../../../types';
+import { CardBottomProps } from '../../../../../types/screens/home';
 
 const CardBottom = ({ price }: CardBottomProps) => {
   return (

@@ -9,7 +9,7 @@ import {
   FONTSIZE,
   FONTFAMILY,
 } from '../../../theme/theme';
-import { SearchInputProps } from '../../../types';
+import { SearchInputProps } from '../../../types/screens/home';
 import SearchResult from './SearchResult';
 
 const SearchInputContainer = ({
