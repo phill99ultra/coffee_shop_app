@@ -4,7 +4,11 @@ import { StackNavigationProp } from '@react-navigation/stack';
 // NAVIGATION TYPES
 export type RootStackParamList = {
   Tab: undefined;
-  Home: undefined;
+  Home: {
+    index: number;
+    id: string;
+    type: string;
+  };
   Cart: undefined;
   Payment: undefined;
   Favorite: undefined;
@@ -17,7 +21,10 @@ export type RootStackParamList = {
 };
 
 // NAVIGATION TYPES FOR SCREENS
-type HomeScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Home'>;
+export type HomeScreenNavigationProp = StackNavigationProp<
+  RootStackParamList,
+  'Home'
+>;
 type HomeScreenRouteProp = RouteProp<RootStackParamList, 'Home'>;
 
 export type ItemScreenNavigationProp = StackNavigationProp<

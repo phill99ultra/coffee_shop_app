@@ -8,6 +8,7 @@ import {
   Text,
 } from 'react-native';
 import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
+import Toast from 'react-native-toast-message';
 
 import useHome from './hooks';
 import { COLORS, FONTFAMILY, FONTSIZE, SPACING } from '../../theme/theme';
@@ -15,9 +16,10 @@ import HeaderBar from '../../components/HeaderBar';
 import SearchInputContainer from './SearchInputContainer';
 import CategoriesNavigator from './CategoriesNavigator';
 import ProductsList from './ProductsList';
-import { ItemScreenProps } from '../../types/navigation';
+import { HomeScreenProps } from '../../types/navigation';
+import { useAddToCart } from '../../hooks/useAddToCart';
 
-function HomeScreen({ navigation }: ItemScreenProps) {
+function HomeScreen({ navigation }: HomeScreenProps) {
   const {
     state: { searchText, categories, categoryIndex, sortedCoffee },
     dispatch,
@@ -27,6 +29,7 @@ function HomeScreen({ navigation }: ItemScreenProps) {
     searchCoffee,
     resetSearchCoffee,
   } = useHome();
+  const { handleAddToCart } = useAddToCart();
 
   const topBarHeight = useBottomTabBarHeight();
 
@@ -61,15 +64,18 @@ function HomeScreen({ navigation }: ItemScreenProps) {
             products={sortedCoffee}
             coffee={true}
             navigation={navigation}
+            handleAddToCart={handleAddToCart}
           />
           <Text style={styles.CoffeeBeansTitle}>Coffee Beans</Text>
           <ProductsList
             products={beansList}
             topBarHeight={topBarHeight}
             navigation={navigation}
+            handleAddToCart={handleAddToCart}
           />
         </ScrollView>
       </View>
+      <Toast position="bottom" bottomOffset={80} />
     </SafeAreaView>
   );
 }

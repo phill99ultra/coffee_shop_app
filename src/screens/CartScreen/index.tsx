@@ -6,7 +6,7 @@ import { StoreType } from '../../types/data';
 
 function CartScreen() {
   const cartList = useStore((state: StoreType) => state.cartList);
-  console.log('cart list ', cartList);
+  console.log('cart list ', cartList.length);
   return (
     <View>
       <Text>CartScreen</Text>

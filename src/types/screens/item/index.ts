@@ -2,7 +2,10 @@ import { ImageProps } from 'react-native';
 
 import { PriceType, TYPE } from '../../data';
 import { ItemActionType } from '../../reducers';
-import { ItemScreenNavigationProp } from '../../navigation';
+import {
+  ItemScreenNavigationProp,
+  HomeScreenNavigationProp,
+} from '../../navigation';
 
 export type ItemImageBtnsProps = {
   enableBackHandler: boolean;
@@ -95,7 +98,7 @@ type ItemToCart = {
 
 export type HandleAddToCartFunction = (
   item: ItemToCart,
-  navigation: ItemScreenNavigationProp,
+  navigation?: ItemScreenNavigationProp | HomeScreenNavigationProp,
 ) => void;
 
 export type ItemPaymentProps = {

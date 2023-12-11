@@ -1,5 +1,10 @@
+import Toast from 'react-native-toast-message';
+
 import { useStore } from '../../store';
-import { ItemScreenNavigationProp } from '../../types/navigation';
+import {
+  ItemScreenNavigationProp,
+  HomeScreenNavigationProp,
+} from '../../types/navigation';
 import { HandleAddToCartFunction } from '../../types/screens/item';
 
 export const useAddToCart = () => {
@@ -7,11 +12,19 @@ export const useAddToCart = () => {
   const calculateCartPrice = useStore(state => state.calculateCartPrice);
 
   function handleNavigateToCart(
-    navigation: ItemScreenNavigationProp,
+    navigation: ItemScreenNavigationProp | HomeScreenNavigationProp,
   ): () => void {
     return () => {
       navigation.navigate('Cart');
     };
+  }
+
+  function handleShowToast(produtName: string) {
+    Toast.show({
+      type: 'success',
+      text1: produtName,
+      text2: 'is Added to cart',
+    });
   }
 
   const handleAddToCart: HandleAddToCartFunction = (
@@ -25,7 +38,7 @@ export const useAddToCart = () => {
       type,
       price,
     },
-    navigation: ItemScreenNavigationProp,
+    navigation?: ItemScreenNavigationProp | HomeScreenNavigationProp,
   ) => {
     addToCart({
       id,
@@ -38,7 +51,7 @@ export const useAddToCart = () => {
       prices: [{ ...price, quantity: 1 }],
     });
     calculateCartPrice();
-    handleNavigateToCart(navigation)();
+    navigation ? handleNavigateToCart(navigation)() : handleShowToast(name);
   };
 
   return { handleAddToCart };

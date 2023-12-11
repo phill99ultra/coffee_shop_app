@@ -20,9 +20,12 @@ const ProductCard = ({
   special_ingredient,
   price,
   index,
+  roasted,
+  prices,
   id,
   type,
   navigation,
+  buttonPressHandler,
 }: ItemCardProps) => {
   return (
     <View style={styles.CardContainer}>
@@ -41,7 +44,18 @@ const ProductCard = ({
           />
           <Text style={styles.CardTitle}>{name}</Text>
           <Text style={styles.CardSubTitle}>{special_ingredient}</Text>
-          <CardBottom price={price} />
+          <CardBottom
+            id={id}
+            index={index}
+            name={name}
+            price={price}
+            roasted={roasted}
+            imagelink_square={imagelink_square}
+            special_ingredient={special_ingredient}
+            prices={prices}
+            type={type}
+            buttonPressHandler={buttonPressHandler}
+          />
         </LinearGradient>
       </TouchableOpacity>
     </View>

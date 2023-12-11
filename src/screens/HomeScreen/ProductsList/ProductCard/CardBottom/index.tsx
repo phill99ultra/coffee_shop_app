@@ -10,13 +10,36 @@ import {
 import BGIcon from '../BGIcon';
 import { CardBottomProps } from '../../../../../types/screens/home';
 
-const CardBottom = ({ price }: CardBottomProps) => {
+const CardBottom = ({
+  id,
+  index,
+  price,
+  name,
+  roasted,
+  imagelink_square,
+  special_ingredient,
+  type,
+  prices,
+  buttonPressHandler,
+}: CardBottomProps) => {
   return (
     <View style={styles.CardBottomRow}>
       <Text style={styles.CardPriceCurrency}>
         $&nbsp;<Text style={styles.CardPrice}>{price}</Text>
       </Text>
-      <TouchableOpacity onPress={() => {}}>
+      <TouchableOpacity
+        onPress={() =>
+          buttonPressHandler({
+            id,
+            index,
+            name,
+            roasted,
+            imagelink_square,
+            special_ingredient,
+            type,
+            price: prices,
+          })
+        }>
         <BGIcon
           color={COLORS.primaryWhiteHex}
           name="add"

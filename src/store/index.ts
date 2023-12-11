@@ -102,6 +102,53 @@ export const useStore = create<StoreType>()(
               }
             }),
           ),
+        incrementCartItemQuantity: (id: string, size: string) =>
+          set(
+            produce(state => {
+              const cartItemIndex = state.cartList.findIndex(
+                (item: DataType) => item.id === id,
+              );
+
+              if (cartItemIndex !== -1) {
+                const priceIndex = state.cartList[
+                  cartItemIndex
+                ].prices.findIndex((price: PriceType) => price.size === size);
+
+                if (priceIndex !== -1) {
+                  state.cartList[cartItemIndex].prices[priceIndex].quantity++;
+                }
+              }
+            }),
+          ),
+        decrementCartItemQuantity: (id: string, size: string) =>
+          set(
+            produce(state => {
+              const cartItemIndex = state.cartList.findIndex(
+                (item: DataType) => item.id === id,
+              );
+
+              if (cartItemIndex !== -1) {
+                const priceIndex = state.cartList[
+                  cartItemIndex
+                ].prices.findIndex((price: PriceType) => price.size === size);
+
+                if (priceIndex !== -1) {
+                  const currentPrice =
+                    state.cartList[cartItemIndex].prices[priceIndex];
+
+                  if (currentPrice.quantity > 1) {
+                    currentPrice.quantity--;
+                  } else {
+                    state.cartList[cartItemIndex].prices.splice(priceIndex, 1);
+
+                    if (state.cartList[cartItemIndex].prices.length === 0) {
+                      state.cartList.splice(cartItemIndex, 1);
+                    }
+                  }
+                }
+              }
+            }),
+          ),
       }),
       {
         name: 'coffee-app',

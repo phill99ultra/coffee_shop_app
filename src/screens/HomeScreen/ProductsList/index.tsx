@@ -12,6 +12,7 @@ const ProductsList = ({
   topBarHeight,
   coffee,
   navigation,
+  handleAddToCart,
 }: ProductsListProps) => {
   return (
     <FlatList
@@ -31,11 +32,14 @@ const ProductsList = ({
           imagelink_square={item.imagelink_square}
           average_rating={item.average_rating}
           special_ingredient={item.special_ingredient}
-          price={item.prices[2].price}
+          price={item.prices[0].price}
           navigation={navigation}
           id={item.id}
           index={item.index}
+          roasted={item.roasted}
           type={item.type}
+          prices={item.prices[0]}
+          buttonPressHandler={handleAddToCart}
         />
       )}
     />

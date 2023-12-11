@@ -1,7 +1,8 @@
-import { ImageSourcePropType } from 'react-native';
-import { DataType, TYPE } from '../../data';
-import { ItemScreenNavigationProp } from '../../navigation';
+import { ImageProps } from 'react-native';
+import { DataType, PriceType, TYPE } from '../../data';
+import { HomeScreenNavigationProp } from '../../navigation';
 import { HomeActionType } from '../../reducers';
+import { HandleAddToCartFunction } from '../item';
 
 export type SearchInputProps = {
   searchText: string;
@@ -27,31 +28,31 @@ export type ProductsListProps = {
   products: DataType[];
   topBarHeight?: number;
   coffee?: boolean;
-  navigation: ItemScreenNavigationProp;
-};
-
-export type ItemCardProps = {
-  id: string;
-  index: number;
-  type: TYPE;
-  roasted: string;
-  imagelink_square: ImageSourcePropType;
-  name: string;
-  average_rating: number;
-  special_ingredient: string;
-  ratings_count: string;
-  price: string;
-  buttonPressHandler: any;
-  navigation: ItemScreenNavigationProp;
-};
-
-export type CardImageProps = {
-  imagelink_square: ImageSourcePropType;
-  average_rating: number;
+  navigation: HomeScreenNavigationProp;
+  handleAddToCart: HandleAddToCartFunction;
 };
 
 export type CardBottomProps = {
+  id: string;
+  index: number;
+  name: string;
+  roasted: string;
+  imagelink_square: ImageProps;
+  special_ingredient: string;
   price: string;
+  type: TYPE;
+  prices: PriceType;
+  buttonPressHandler: HandleAddToCartFunction;
+};
+
+export type ItemCardProps = {
+  average_rating: number;
+  navigation: HomeScreenNavigationProp;
+} & CardBottomProps;
+
+export type CardImageProps = {
+  imagelink_square: ImageProps;
+  average_rating: number;
 };
 
 export type BGIconProps = {
