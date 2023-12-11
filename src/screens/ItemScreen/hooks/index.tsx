@@ -1,21 +1,12 @@
 import { ItemScreenNavigationProp } from '../../../types/navigation';
-import { StoreType } from '../../../types/data';
-import { useStore } from '../../../store';
+import { useStateStore } from '../../../hooks/useStateStore';
 
 const useItemDetails = () => {
-  const addToFavouriteList = useStore(state => state.addToFavouriteList);
-  const deleteFromFavouriteList = useStore(
-    state => state.deleteFromFavouriteList,
-  );
-
-  // Had to rename state to store to avoid warning with state declared in useReducer hook below
-  function GetItemOfIndex(index: number, type: string) {
-    const itemOfIndex = useStore((store: StoreType) =>
-      type === 'Coffee' ? store.coffeeList : store.beansList,
-    )[index];
-
-    return itemOfIndex;
-  }
+  const {
+    addToFavouriteList,
+    deleteFromFavouriteList,
+    GetItemOfIndex: handleGetItemOfIndex,
+  } = useStateStore();
 
   function handleNavigateBack(
     navigation: ItemScreenNavigationProp,
@@ -36,7 +27,7 @@ const useItemDetails = () => {
   };
 
   return {
-    GetItemOfIndex,
+    handleGetItemOfIndex,
     handleNavigateBack,
     handleToggleFavourite,
   };

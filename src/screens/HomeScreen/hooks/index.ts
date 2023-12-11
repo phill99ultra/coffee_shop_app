@@ -8,12 +8,10 @@ import {
   filterCoffeeList,
 } from '../../../helpers';
 import { InitialHomeStateType } from '../../../types/reducers';
-import { StoreType } from '../../../types/data';
-import { useStore } from '../../../store';
+import { useStateStore } from '../../../hooks/useStateStore';
 
 const useHome = () => {
-  const coffeeList = useStore((state: StoreType) => state.coffeeList);
-  const beansList = useStore((state: StoreType) => state.beansList);
+  const { coffeeList, beansList } = useStateStore();
   const categories = getCategoriesFromData(coffeeList);
   const categoryIndex = {
     index: 0,

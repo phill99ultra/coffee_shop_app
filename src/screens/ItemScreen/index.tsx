@@ -23,7 +23,7 @@ function ItemScreen({ navigation, route }: ItemScreenProps) {
     type: '',
   };
 
-  const { GetItemOfIndex, handleNavigateBack, handleToggleFavourite } =
+  const { handleGetItemOfIndex, handleNavigateBack, handleToggleFavourite } =
     useItemDetails();
   const { handleAddToCart } = useAddToCart();
 
@@ -42,7 +42,7 @@ function ItemScreen({ navigation, route }: ItemScreenProps) {
     roasted,
     description,
     prices,
-  } = GetItemOfIndex(indexParam, typeParam);
+  } = handleGetItemOfIndex(indexParam, typeParam);
 
   const INITIAL_STATE: InitialItemStateType = {
     fullDescription: false,

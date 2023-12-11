@@ -1,15 +1,14 @@
 import Toast from 'react-native-toast-message';
 
-import { useStore } from '../../store';
 import {
   ItemScreenNavigationProp,
   HomeScreenNavigationProp,
 } from '../../types/navigation';
 import { HandleAddToCartFunction } from '../../types/screens/item';
+import { useStateStore } from '../useStateStore';
 
 export const useAddToCart = () => {
-  const addToCart = useStore(state => state.addToCart);
-  const calculateCartPrice = useStore(state => state.calculateCartPrice);
+  const { addToCart, calculateCartPrice } = useStateStore();
 
   function handleNavigateToCart(
     navigation: ItemScreenNavigationProp | HomeScreenNavigationProp,

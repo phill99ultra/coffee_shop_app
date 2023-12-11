@@ -62,5 +62,7 @@ export type StoreType = {
   orderHistoryList: [];
   addToFavouriteList: (type: string, id: string) => void;
   deleteFromFavouriteList: (type: string, id: string) => void;
+  incrementCartItemQuantity: (id: string, size: string) => void;
+  decrementCartItemQuantity: (id: string, size: string) => void;
 } & AddToCart &
   CalculateCart;
