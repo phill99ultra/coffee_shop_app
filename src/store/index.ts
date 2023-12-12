@@ -14,7 +14,7 @@ export const useStore = create<StoreType>()(
       (set, get) => ({
         coffeeList: CoffeeData,
         beansList: BeansData,
-        cartAmount: 0,
+        cartPrice: 0,
         favouritesList: [],
         cartList: [],
         orderHistoryList: [],
@@ -169,6 +169,12 @@ export const useStore = create<StoreType>()(
                 cartListTotalPrice: tempCartTotal.toFixed(2).toString(),
               });
 
+              state.cartList = [];
+            }),
+          ),
+        reset: () =>
+          set(
+            produce(state => {
               state.cartList = [];
             }),
           ),

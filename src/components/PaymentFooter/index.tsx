@@ -1,31 +1,31 @@
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import React from 'react';
 
-import { ItemPaymentProps } from '../../../types/screens/item';
+import { PaymentFooterProps } from '../../types';
 import {
   BORDERRADIUS,
   COLORS,
   FONTFAMILY,
   FONTSIZE,
   SPACING,
-} from '../../../theme/theme';
+} from '../../theme/theme';
 
-const ItemPayment = ({
-  itemPrice,
+const PaymentFooter = ({
+  price,
   title,
   currency,
-  handleAddToCart,
-}: ItemPaymentProps) => {
+  handleBtnPress,
+}: PaymentFooterProps) => {
   return (
     <View style={styles.PaymentContainer}>
       <View style={styles.PriceContainer}>
         <Text style={styles.PriceTitle}>Price</Text>
         <Text style={styles.PriceText}>
-          {currency}&nbsp;<Text style={styles.Price}>{itemPrice}</Text>
+          {currency}&nbsp;<Text style={styles.Price}>{price}</Text>
         </Text>
       </View>
       <TouchableOpacity
-        onPress={() => handleAddToCart()}
+        onPress={() => handleBtnPress()}
         style={styles.PayButton}>
         <Text style={styles.ButtonText}>{title}</Text>
       </TouchableOpacity>
@@ -73,4 +73,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ItemPayment;
+export default PaymentFooter;

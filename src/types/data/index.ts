@@ -56,13 +56,14 @@ export type CalculateCart = {
 export type StoreType = {
   coffeeList: DataType[];
   beansList: DataType[];
-  cartAmount: number;
+  cartPrice: number;
   favouritesList: [];
-  cartList: [];
+  cartList: CartItem[];
   orderHistoryList: [];
   addToFavouriteList: (type: string, id: string) => void;
   deleteFromFavouriteList: (type: string, id: string) => void;
   incrementCartItemQuantity: (id: string, size: string) => void;
   decrementCartItemQuantity: (id: string, size: string) => void;
+  reset: () => void;
 } & AddToCart &
   CalculateCart;

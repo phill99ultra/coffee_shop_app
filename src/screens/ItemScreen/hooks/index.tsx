@@ -1,7 +1,7 @@
 import { ItemScreenNavigationProp } from '../../../types/navigation';
 import { useStateStore } from '../../../hooks/useStateStore';
 
-const useItemDetails = () => {
+const useItem = () => {
   const {
     addToFavouriteList,
     deleteFromFavouriteList,
@@ -33,4 +33,4 @@ const useItemDetails = () => {
   };
 };
 
-export default useItemDetails;
+export default useItem;

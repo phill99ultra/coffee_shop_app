@@ -8,3 +8,10 @@ export type GradientIconProps = {
   color: string;
   size: number;
 };
+
+export type PaymentFooterProps = {
+  price: string | number;
+  currency: string;
+  title: string;
+  handleBtnPress: () => void;
+};

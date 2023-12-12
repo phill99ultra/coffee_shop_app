@@ -100,10 +100,3 @@ export type HandleAddToCartFunction = (
   item: ItemToCart,
   navigation?: ItemScreenNavigationProp | HomeScreenNavigationProp,
 ) => void;
-
-export type ItemPaymentProps = {
-  itemPrice: string;
-  currency: string;
-  title: string;
-  handleAddToCart: () => void;
-};

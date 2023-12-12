@@ -3,7 +3,7 @@ import { useStore } from '../../store';
 
 export const useStateStore = () => {
   const beansList = useStore(state => state.beansList);
-  const cartAmount = useStore(state => state.cartAmount);
+  const cartPrice = useStore(state => state.cartPrice);
   const cartList = useStore(state => state.cartList);
   const coffeeList = useStore(state => state.coffeeList);
   const addToCart = useStore(state => state.addToCart);
@@ -18,6 +18,7 @@ export const useStateStore = () => {
   const decrementCartItemQuantity = useStore(
     state => state.decrementCartItemQuantity,
   );
+  const reset = useStore(state => state.reset);
 
   function GetItemOfIndex(index: number, type: string) {
     const itemOfIndex = useStore((state: StoreType) =>
@@ -29,7 +30,7 @@ export const useStateStore = () => {
 
   return {
     beansList,
-    cartAmount,
+    cartPrice,
     cartList,
     coffeeList,
     addToCart,
@@ -39,5 +40,6 @@ export const useStateStore = () => {
     deleteFromFavouriteList,
     GetItemOfIndex,
     incrementCartItemQuantity,
+    reset,
   };
 };

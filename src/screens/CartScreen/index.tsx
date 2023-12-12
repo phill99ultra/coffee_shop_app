@@ -4,9 +4,16 @@ import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
 
 import { COLORS } from '../../theme/theme';
 import HeaderBar from '../../components/HeaderBar';
+import CartList from './CartList';
+import PaymentFooter from '../../components/PaymentFooter';
+import { CartScreenProps } from '../../types/navigation';
+import useCart from './hooks';
 
-function CartScreen() {
+function CartScreen({ navigation }: CartScreenProps) {
   const topBarHeight = useBottomTabBarHeight();
+  const { cartList, cartPrice, handleNavigateToPayment } = useCart();
+
+  console.log('cart list = ', cartList.length);
   return (
     <View style={styles.ScreenContainer}>
       <StatusBar backgroundColor={COLORS.primaryBlackHex} />
@@ -16,7 +23,16 @@ function CartScreen() {
         <View style={[styles.ScrollViewInner, { marginBottom: topBarHeight }]}>
           <View style={styles.ContentContainer}>
             <HeaderBar title="Cart" />
+            <CartList list={cartList} />
           </View>
+          {cartList.length !== 0 && (
+            <PaymentFooter
+              title="Pay"
+              currency="$"
+              price={cartPrice}
+              handleBtnPress={() => handleNavigateToPayment(navigation)}
+            />
+          )}
         </View>
       </ScrollView>
     </View>

@@ -12,8 +12,8 @@ import { ItemScreenProps } from '../../types/navigation';
 import { COLORS } from '../../theme/theme';
 import ItemImage from './ItemImage';
 import ItemInfoArea from './ItemInfoArea';
-import ItemPayment from './ItemPayment';
-import useItemDetails from './hooks';
+import PaymentFooter from '../../components/PaymentFooter';
+import useItem from './hooks';
 import { itemReducer } from '../../helpers';
 import { useAddToCart } from '../../hooks/useAddToCart';
 
@@ -24,7 +24,7 @@ function ItemScreen({ navigation, route }: ItemScreenProps) {
   };
 
   const { handleGetItemOfIndex, handleNavigateBack, handleToggleFavourite } =
-    useItemDetails();
+    useItem();
   const { handleAddToCart } = useAddToCart();
 
   const {
@@ -83,11 +83,11 @@ function ItemScreen({ navigation, route }: ItemScreenProps) {
             itemPrice={price}
             type={typeOfItem}
           />
-          <ItemPayment
-            itemPrice={itemPrice}
+          <PaymentFooter
+            price={itemPrice}
             currency={currency}
             title="Add to Cart"
-            handleAddToCart={() =>
+            handleBtnPress={() =>
               handleAddToCart(
                 {
                   id: idOfItem,
