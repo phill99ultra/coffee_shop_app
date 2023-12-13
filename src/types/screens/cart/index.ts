@@ -1,9 +1,17 @@
-import { CartItem } from '../../data';
+import { CartItemType } from '../../data';
 
 export type EmptyListProps = {
   title: string;
 };
 
 export type CartListProps = {
-  list: CartItem[];
+  list: CartItemType[];
 };
+
+export type CartItemInfoProps = {
+  name: string;
+  special_ingredient: string;
+  roasted: string;
+};
+
+export type CartListItemProps = CartItemType;

@@ -14,7 +14,16 @@ const CartList = ({ list }: CartListProps) => {
   return (
     <View style={styles.ListConatiner}>
       {list.map(item => (
-        <CartListItem key={item.id} />
+        <CartListItem
+          key={item.id}
+          id={item.id}
+          name={item.name}
+          imagelink_square={item.imagelink_square}
+          roasted={item.roasted}
+          special_ingredient={item.special_ingredient}
+          type={item.type}
+          prices={item.prices}
+        />
       ))}
     </View>
   );

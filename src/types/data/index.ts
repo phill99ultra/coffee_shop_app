@@ -12,41 +12,33 @@ export type PriceType = {
   quantity?: number;
 };
 
-export type DataType = {
+export type CartItemType = {
   id: string;
+  index: number;
   name: string;
-  description: string;
   roasted: string;
   imagelink_square: ImageProps;
+  special_ingredient: string;
+  type: TYPE;
+  prices: PriceType[];
+};
+
+export type DataType = {
+  description: string;
   imagelink_portrait: ImageProps;
   ingredients: string;
-  special_ingredient: string;
-  prices: PriceType[];
   average_rating: number;
   ratings_count: string;
   favourite: boolean;
-  type: TYPE;
-  index: number;
   item_price?: string;
-};
-
-export type CartItem = {
-  id: string;
-  index: number;
-  name: string;
-  roasted: string;
-  imagelink_square: ImageProps;
-  special_ingredient: string;
-  type: TYPE;
-  prices: PriceType[];
-};
+} & CartItemType;
 
 export type CountMapType = {
   [key: string]: number;
 };
 
 export type AddToCart = {
-  addToCart: (item: CartItem) => void;
+  addToCart: (item: CartItemType) => void;
 };
 
 export type CalculateCart = {
@@ -58,12 +50,12 @@ export type StoreType = {
   beansList: DataType[];
   cartPrice: number;
   favouritesList: [];
-  cartList: CartItem[];
+  cartList: CartItemType[];
   orderHistoryList: [];
   addToFavouriteList: (type: string, id: string) => void;
   deleteFromFavouriteList: (type: string, id: string) => void;
-  incrementCartItemQuantity: (id: string, size: string) => void;
-  decrementCartItemQuantity: (id: string, size: string) => void;
+  incrementCartItemTypeQuantity: (id: string, size: string) => void;
+  decrementCartItemTypeQuantity: (id: string, size: string) => void;
   reset: () => void;
 } & AddToCart &
   CalculateCart;
