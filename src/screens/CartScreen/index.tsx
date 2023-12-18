@@ -13,7 +13,7 @@ function CartScreen({ navigation }: CartScreenProps) {
   const topBarHeight = useBottomTabBarHeight();
   const { cartList, cartPrice, handleNavigateToPayment } = useCart();
 
-  console.log('cart list = ', cartList.length);
+  // console.log('cart list = ', cartList.length);
   return (
     <View style={styles.ScreenContainer}>
       <StatusBar backgroundColor={COLORS.primaryBlackHex} />

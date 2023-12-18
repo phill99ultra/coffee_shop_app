@@ -11,6 +11,7 @@ import {
   SPACING,
 } from '../../../../theme/theme';
 import CartItemInfo from './CartItemInfo';
+import CartItemSizes from './CartItemSizes';
 
 const CartListItem = ({
   id,
@@ -38,6 +39,15 @@ const CartListItem = ({
                 roasted={roasted}
               />
             </View>
+            {prices.map((price, index) => (
+              <CartItemSizes
+                key={index.toString()}
+                size={price.size}
+                type={type}
+                currency={price.currency}
+                price={price.price}
+              />
+            ))}
           </LinearGradient>
         )}
       </View>
