@@ -5,7 +5,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import CoffeeData from '../data/CoffeeData';
 import BeansData from '../data/BeansData';
-import { StoreType, PriceType, DataType, CartItem } from '../types/data';
+import { StoreType, PriceType, DataType, CartItemType } from '../types/data';
 
 export const useStore = create<StoreType>()(
   devtools(
@@ -18,7 +18,7 @@ export const useStore = create<StoreType>()(
         favouritesList: [],
         cartList: [],
         orderHistoryList: [],
-        addToCart: (cartItem: CartItem) =>
+        addToCart: (cartItem: CartItemType) =>
           set(
             produce(state => {
               const existingCartItem = state.cartList.find(
@@ -106,7 +106,7 @@ export const useStore = create<StoreType>()(
           set(
             produce(state => {
               const cartItemIndex = state.cartList.findIndex(
-                (item: DataType) => item.id === id,
+                (item: CartItemType) => item.id === id,
               );
 
               if (cartItemIndex !== -1) {
@@ -124,7 +124,7 @@ export const useStore = create<StoreType>()(
           set(
             produce(state => {
               const cartItemIndex = state.cartList.findIndex(
-                (item: DataType) => item.id === id,
+                (item: CartItemType) => item.id === id,
               );
 
               if (cartItemIndex !== -1) {
@@ -169,12 +169,6 @@ export const useStore = create<StoreType>()(
                 cartListTotalPrice: tempCartTotal.toFixed(2).toString(),
               });
 
-              state.cartList = [];
-            }),
-          ),
-        reset: () =>
-          set(
-            produce(state => {
               state.cartList = [];
             }),
           ),

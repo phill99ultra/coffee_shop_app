@@ -9,7 +9,11 @@ export type RootStackParamList = {
     id: string;
     type: string;
   };
-  Cart: undefined;
+  Cart: {
+    index: number;
+    id: string;
+    type: string;
+  };
   Payment: undefined;
   Favorite: undefined;
   History: undefined;

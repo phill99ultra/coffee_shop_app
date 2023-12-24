@@ -8,21 +8,23 @@ const useCart = () => {
     calculateCartPrice,
     decrementCartItemQuantity,
     incrementCartItemQuantity,
-    reset,
   } = useStateStore();
 
   function handleNavigateToPayment(navigation: CartScreenNavigationProp) {
     navigation.navigate('Payment');
   }
 
+  function handleChangeQuantity(id: string, size: string, type: string) {
+    type === 'minus' && decrementCartItemQuantity(id, size);
+    type === 'add' && incrementCartItemQuantity(id, size);
+    calculateCartPrice();
+  }
+
   return {
     cartPrice,
     cartList,
     handleNavigateToPayment,
-    calculateCartPrice,
-    decrementCartItemQuantity,
-    incrementCartItemQuantity,
-    reset,
+    handleChangeQuantity,
   };
 };
 

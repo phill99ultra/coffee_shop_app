@@ -1,27 +1,33 @@
 import { StyleSheet, Text, View } from 'react-native';
 import React from 'react';
 
-import { CartItemSizesProps } from '../../../../../types/screens/cart';
 import {
-  BORDERRADIUS,
-  COLORS,
   FONTFAMILY,
   FONTSIZE,
+  COLORS,
+  BORDERRADIUS,
   SPACING,
 } from '../../../../../theme/theme';
-import IncrementDecrementBtn from './IncrementDecrementBtn';
+import { CartSingleItemInfoProps } from '../../../../../types/screens/cart';
+import IncrementDecrementBtn from '../CartItemSizes/IncrementDecrementBtn';
 
-const CartItemSizes = ({
+const CartSingleItemInfo = ({
   id,
+  name,
+  special_ingredient,
+  fontSize,
   size,
   currency,
   price,
   quantity,
-  fontSize,
   handleChangeQuantity,
-}: CartItemSizesProps) => {
+}: CartSingleItemInfoProps) => {
   return (
-    <View style={styles.RowContainer}>
+    <View style={styles.CartItemInfoContainer}>
+      <View>
+        <Text style={styles.CartItemTitle}>{name}</Text>
+        <Text style={styles.CartItemSubtitle}>{special_ingredient}</Text>
+      </View>
       <View style={styles.ValueContainer}>
         <View style={styles.SizeBox}>
           <Text style={[styles.SizeText, { fontSize: fontSize }]}>{size}</Text>
@@ -53,18 +59,25 @@ const CartItemSizes = ({
 };
 
 const styles = StyleSheet.create({
-  RowContainer: {
+  CartItemInfoContainer: {
     flex: 1,
-    alignItems: 'center',
-    gap: SPACING.space_20,
-    flexDirection: 'row',
-    justifyContent: 'center',
+    alignSelf: 'stretch',
+    justifyContent: 'space-around',
+  },
+  CartItemTitle: {
+    fontFamily: FONTFAMILY.poppins_medium,
+    fontSize: FONTSIZE.size_18,
+    color: COLORS.primaryWhiteHex,
+  },
+  CartItemSubtitle: {
+    fontFamily: FONTFAMILY.poppins_regular,
+    fontSize: FONTSIZE.size_12,
+    color: COLORS.secondaryLightGreyHex,
   },
   ValueContainer: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'space-between',
     flexDirection: 'row',
+    justifyContent: 'space-evenly',
+    alignItems: 'center',
   },
   SizeBox: {
     backgroundColor: COLORS.primaryBlackHex,
@@ -102,4 +115,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default CartItemSizes;
+export default CartSingleItemInfo;

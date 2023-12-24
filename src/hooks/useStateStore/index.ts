@@ -18,7 +18,6 @@ export const useStateStore = () => {
   const decrementCartItemQuantity = useStore(
     state => state.decrementCartItemQuantity,
   );
-  const reset = useStore(state => state.reset);
 
   function GetItemOfIndex(index: number, type: string) {
     const itemOfIndex = useStore((state: StoreType) =>
@@ -40,6 +39,5 @@ export const useStateStore = () => {
     deleteFromFavouriteList,
     GetItemOfIndex,
     incrementCartItemQuantity,
-    reset,
   };
 };

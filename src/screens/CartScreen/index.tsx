@@ -11,9 +11,9 @@ import useCart from './hooks';
 
 function CartScreen({ navigation }: CartScreenProps) {
   const topBarHeight = useBottomTabBarHeight();
-  const { cartList, cartPrice, handleNavigateToPayment } = useCart();
+  const { cartList, cartPrice, handleNavigateToPayment, handleChangeQuantity } =
+    useCart();
 
-  // console.log('cart list = ', cartList.length);
   return (
     <View style={styles.ScreenContainer}>
       <StatusBar backgroundColor={COLORS.primaryBlackHex} />
@@ -23,7 +23,11 @@ function CartScreen({ navigation }: CartScreenProps) {
         <View style={[styles.ScrollViewInner, { marginBottom: topBarHeight }]}>
           <View style={styles.ContentContainer}>
             <HeaderBar title="Cart" />
-            <CartList list={cartList} />
+            <CartList
+              list={cartList}
+              navigation={navigation}
+              handleChangeQuantity={handleChangeQuantity}
+            />
           </View>
           {cartList.length !== 0 && (
             <PaymentFooter
