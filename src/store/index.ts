@@ -5,7 +5,13 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import CoffeeData from '../data/CoffeeData';
 import BeansData from '../data/BeansData';
-import { StoreType, PriceType, DataType, CartItemType } from '../types/data';
+import {
+  StoreType,
+  PriceType,
+  DataType,
+  CartItemType,
+  FavouriteItemType,
+} from '../types/data';
 
 export const useStore = create<StoreType>()(
   devtools(
@@ -70,7 +76,7 @@ export const useStore = create<StoreType>()(
                 type === 'Coffee' ? state.coffeeList : state.beansList;
 
               const targetItem = targetList.find(
-                (item: DataType) => item.id === id,
+                (item: FavouriteItemType) => item.id === id,
               );
 
               if (targetItem && !targetItem.favourite) {
@@ -86,7 +92,7 @@ export const useStore = create<StoreType>()(
                 type === 'Coffee' ? state.coffeeList : state.beansList;
 
               const targetItem = targetList.find(
-                (item: DataType) => item.id === id,
+                (item: FavouriteItemType) => item.id === id,
               );
 
               if (targetItem && targetItem.favourite) {
@@ -94,7 +100,7 @@ export const useStore = create<StoreType>()(
               }
 
               const spliceIndex = state.favouritesList.findIndex(
-                (item: DataType) => item.id === id,
+                (item: FavouriteItemType) => item.id === id,
               );
 
               if (spliceIndex !== -1) {

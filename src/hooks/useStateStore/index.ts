@@ -6,6 +6,7 @@ export const useStateStore = () => {
   const cartPrice = useStore(state => state.cartPrice);
   const cartList = useStore(state => state.cartList);
   const coffeeList = useStore(state => state.coffeeList);
+  const favouriteList = useStore(state => state.favouritesList);
   const addToCart = useStore(state => state.addToCart);
   const addToFavouriteList = useStore(state => state.addToFavouriteList);
   const calculateCartPrice = useStore(state => state.calculateCartPrice);
@@ -32,6 +33,7 @@ export const useStateStore = () => {
     cartPrice,
     cartList,
     coffeeList,
+    favouriteList,
     addToCart,
     addToFavouriteList,
     calculateCartPrice,

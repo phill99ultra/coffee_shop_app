@@ -1,60 +1,45 @@
-import { ScrollView, View, StyleSheet, StatusBar } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import React from 'react';
-import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
 
-import { COLORS } from '../../theme/theme';
+import { CartScreenProps } from '../../types/navigation';
+
 import HeaderBar from '../../components/HeaderBar';
 import CartList from './CartList';
+import ScreenContainer from '../../hoc/ScreenContainer';
+import ContentContainer from '../../hoc/ContentContainer';
 import PaymentFooter from '../../components/PaymentFooter';
-import { CartScreenProps } from '../../types/navigation';
+
 import useCart from './hooks';
 
 function CartScreen({ navigation }: CartScreenProps) {
-  const topBarHeight = useBottomTabBarHeight();
   const { cartList, cartPrice, handleNavigateToPayment, handleChangeQuantity } =
     useCart();
 
   return (
-    <View style={styles.ScreenContainer}>
-      <StatusBar backgroundColor={COLORS.primaryBlackHex} />
-      <ScrollView
-        showsVerticalScrollIndicator={false}
-        contentContainerStyle={styles.ScrollViewContainer}>
-        <View style={[styles.ScrollViewInner, { marginBottom: topBarHeight }]}>
-          <View style={styles.ContentContainer}>
-            <HeaderBar title="Cart" />
-            <CartList
-              list={cartList}
-              navigation={navigation}
-              handleChangeQuantity={handleChangeQuantity}
-            />
-          </View>
-          {cartList.length !== 0 && (
-            <PaymentFooter
-              title="Pay"
-              currency="$"
-              price={cartPrice}
-              handleBtnPress={() => handleNavigateToPayment(navigation)}
-            />
-          )}
+    <ScreenContainer>
+      <ContentContainer>
+        <View style={styles.ContentContainer}>
+          <HeaderBar title="Cart" />
+          <CartList
+            list={cartList}
+            navigation={navigation}
+            handleChangeQuantity={handleChangeQuantity}
+          />
         </View>
-      </ScrollView>
-    </View>
+        {cartList.length !== 0 && (
+          <PaymentFooter
+            title="Pay"
+            currency="$"
+            price={cartPrice}
+            handleBtnPress={() => handleNavigateToPayment(navigation)}
+          />
+        )}
+      </ContentContainer>
+    </ScreenContainer>
   );
 }
 
 const styles = StyleSheet.create({
-  ScreenContainer: {
-    flex: 1,
-    backgroundColor: COLORS.primaryBlackHex,
-  },
-  ScrollViewContainer: {
-    flexGrow: 1,
-  },
-  ScrollViewInner: {
-    flex: 1,
-    justifyContent: 'space-between',
-  },
   ContentContainer: {
     flex: 1,
   },

@@ -9,13 +9,19 @@ export type RootStackParamList = {
     id: string;
     type: string;
   };
-  Cart: {
+  Cart:
+    | {
+        index: number;
+        id: string;
+        type: string;
+      }
+    | undefined;
+  Payment: undefined;
+  Favorite: {
     index: number;
     id: string;
     type: string;
   };
-  Payment: undefined;
-  Favorite: undefined;
   History: undefined;
   Item: {
     index: number;
@@ -43,6 +49,12 @@ export type CartScreenNavigationProp = StackNavigationProp<
 >;
 type CartScreenRouteProp = RouteProp<RootStackParamList, 'Cart'>;
 
+export type FavoriteScreenNavigationProp = StackNavigationProp<
+  RootStackParamList,
+  'Favorite'
+>;
+type FavoriteScreenRouteProp = RouteProp<RootStackParamList, 'Favorite'>;
+
 // TYPES IN SCREEN COMPONENTS
 export type ItemScreenProps = {
   navigation: ItemScreenNavigationProp;
@@ -57,6 +69,11 @@ export type HomeScreenProps = {
 export type CartScreenProps = {
   navigation: CartScreenNavigationProp;
   route: CartScreenRouteProp;
+};
+
+export type FavoriteScreenProps = {
+  navigation: FavoriteScreenNavigationProp;
+  route: FavoriteScreenRouteProp;
 };
 
 export type TabType = {

@@ -15,3 +15,11 @@ export type PaymentFooterProps = {
   title: string;
   handleBtnPress: () => void;
 };
+
+export type FavouriteToggleType = {
+  toggleFavourite: (favourite: boolean, type: string, id: string) => void;
+};
+
+export type ChildrenType = {
+  children: React.ReactNode;
+};

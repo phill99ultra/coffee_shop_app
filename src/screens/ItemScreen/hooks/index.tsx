@@ -1,12 +1,11 @@
 import { ItemScreenNavigationProp } from '../../../types/navigation';
 import { useStateStore } from '../../../hooks/useStateStore';
+import { useToggleFavourite } from '../../../hooks/useToggleFavourite';
 
 const useItem = () => {
-  const {
-    addToFavouriteList,
-    deleteFromFavouriteList,
-    GetItemOfIndex: handleGetItemOfIndex,
-  } = useStateStore();
+  const { GetItemOfIndex: handleGetItemOfIndex } = useStateStore();
+
+  const { handleToggleFavourite } = useToggleFavourite();
 
   function handleNavigateBack(
     navigation: ItemScreenNavigationProp,
@@ -15,16 +14,6 @@ const useItem = () => {
       navigation.pop();
     };
   }
-
-  const handleToggleFavourite = (
-    favourite: boolean,
-    type: string,
-    id: string,
-  ) => {
-    favourite
-      ? deleteFromFavouriteList(type, id)
-      : addToFavouriteList(type, id);
-  };
 
   return {
     handleGetItemOfIndex,

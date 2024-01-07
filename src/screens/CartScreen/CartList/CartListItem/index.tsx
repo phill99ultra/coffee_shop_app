@@ -46,9 +46,9 @@ const CartListItem = ({
                 roasted={roasted}
               />
             </View>
-            {prices.map((price, index) => (
+            {prices.map((price, i) => (
               <CartItemSizes
-                key={index.toString()}
+                key={i.toString()}
                 id={id}
                 size={price.size}
                 currency={price.currency}

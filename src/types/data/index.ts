@@ -23,6 +23,20 @@ export type CartItemType = {
   prices: PriceType[];
 };
 
+export type FavouriteItemType = {
+  id: string;
+  index: number;
+  name: string;
+  average_rating: number;
+  ratings_count: string;
+  roasted: string;
+  description: string;
+  special_ingredient: string;
+  imagelink_square: ImageProps;
+  type: TYPE;
+  favourite: boolean;
+};
+
 export type DataType = {
   description: string;
   imagelink_portrait: ImageProps;

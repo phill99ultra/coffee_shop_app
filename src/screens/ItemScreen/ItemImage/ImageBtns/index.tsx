@@ -28,7 +28,9 @@ const ImageBtns = ({
         </TouchableOpacity>
       )}
       <TouchableOpacity
-        onPress={() => handleToggleFavourite(favourite, type, id)}>
+        onPress={() =>
+          handleToggleFavourite.toggleFavourite(favourite, type, id)
+        }>
         <GradientIcon
           name="like"
           color={favourite ? COLORS.primaryRedHex : COLORS.primaryLightGreyHex}

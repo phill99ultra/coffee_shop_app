@@ -2,15 +2,15 @@ import { StyleSheet, Text, View } from 'react-native';
 import React from 'react';
 import LottieView from 'lottie-react-native';
 
-import { EmptyListProps } from '../../../../types/screens/cart';
-import { COLORS, FONTFAMILY, FONTSIZE } from '../../../../theme/theme';
+import { EmptyListProps } from '../../types/screens/cart';
+import { COLORS, FONTFAMILY, FONTSIZE } from '../../theme/theme';
 
 const EmptyList = ({ title }: EmptyListProps) => {
   return (
     <View style={styles.EmptyCartContainer}>
       <LottieView
         style={styles.LottieContainer}
-        source={require('../../../../lottie/coffeecup.json')}
+        source={require('../../lottie/coffeecup.json')}
         autoPlay
         loop
       />

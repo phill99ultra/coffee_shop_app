@@ -6,15 +6,19 @@ import {
   ItemScreenNavigationProp,
   HomeScreenNavigationProp,
 } from '../../navigation';
+import { FavouriteToggleType } from '../..';
 
-export type ItemImageBtnsProps = {
+export type ImageBtnsProps = {
   enableBackHandler: boolean;
   favourite: boolean;
   type: TYPE;
   id: string;
   handleBackHandler: () => void;
-  handleToggleFavourite: (favourite: boolean, type: string, id: string) => void;
 };
+
+export type ItemImageBtnsProps = {
+  handleToggleFavourite: FavouriteToggleType;
+} & ImageBtnsProps;
 
 export type ItemImageProps = {
   imagelink_portrait: ImageProps;
@@ -24,7 +28,8 @@ export type ItemImageProps = {
   average_rating: number;
   ratings_count: string;
   roasted: string;
-} & ItemImageBtnsProps;
+  handleToggleFavourite: any;
+} & ImageBtnsProps;
 
 export type ProprertiesProps = {
   type: TYPE;

@@ -1,22 +1,18 @@
 import React from 'react';
-import {
-  StyleSheet,
-  ScrollView,
-  View,
-  StatusBar,
-  SafeAreaView,
-  Text,
-} from 'react-native';
+import { StyleSheet, ScrollView, Text } from 'react-native';
 import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
 import Toast from 'react-native-toast-message';
 
-import useHome from './hooks';
+import { HomeScreenProps } from '../../types/navigation';
 import { COLORS, FONTFAMILY, FONTSIZE, SPACING } from '../../theme/theme';
+
 import HeaderBar from '../../components/HeaderBar';
 import SearchInputContainer from './SearchInputContainer';
 import CategoriesNavigator from './CategoriesNavigator';
 import ProductsList from './ProductsList';
-import { HomeScreenProps } from '../../types/navigation';
+import ScreenContainer from '../../hoc/ScreenContainer';
+
+import useHome from './hooks';
 import { useAddToCart } from '../../hooks/useAddToCart';
 
 function HomeScreen({ navigation }: HomeScreenProps) {
@@ -34,61 +30,50 @@ function HomeScreen({ navigation }: HomeScreenProps) {
   const topBarHeight = useBottomTabBarHeight();
 
   return (
-    <SafeAreaView style={styles.SafeAreaContainer}>
-      <View style={styles.ScreenContainer}>
-        <StatusBar backgroundColor={COLORS.primaryBlackHex} />
-        <ScrollView
-          showsVerticalScrollIndicator={false}
-          contentContainerStyle={styles.ScrollViewFlex}>
-          <HeaderBar />
-          <Text style={styles.ScreenTitle}>
-            Find the best
-            {'\n'}
-            coffee for you
-          </Text>
-          <SearchInputContainer
-            searchText={searchText}
-            dispatch={dispatch}
-            searchCoffee={searchCoffee}
-            resetSearchCoffee={resetSearchCoffee}
-          />
-          <CategoriesNavigator
-            listRef={listRef}
-            categories={categories}
-            categoryIndex={categoryIndex.index}
-            coffeeList={coffeeList}
-            dispatch={dispatch}
-          />
-          <ProductsList
-            listRef={listRef}
-            products={sortedCoffee}
-            coffee={true}
-            navigation={navigation}
-            handleAddToCart={handleAddToCart}
-          />
-          <Text style={styles.CoffeeBeansTitle}>Coffee Beans</Text>
-          <ProductsList
-            products={beansList}
-            topBarHeight={topBarHeight}
-            navigation={navigation}
-            handleAddToCart={handleAddToCart}
-          />
-        </ScrollView>
-      </View>
+    <ScreenContainer>
+      <ScrollView
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={styles.ScrollViewFlex}>
+        <HeaderBar />
+        <Text style={styles.ScreenTitle}>
+          Find the best
+          {'\n'}
+          coffee for you
+        </Text>
+        <SearchInputContainer
+          searchText={searchText}
+          dispatch={dispatch}
+          searchCoffee={searchCoffee}
+          resetSearchCoffee={resetSearchCoffee}
+        />
+        <CategoriesNavigator
+          listRef={listRef}
+          categories={categories}
+          categoryIndex={categoryIndex.index}
+          coffeeList={coffeeList}
+          dispatch={dispatch}
+        />
+        <ProductsList
+          listRef={listRef}
+          products={sortedCoffee}
+          coffee={true}
+          navigation={navigation}
+          handleAddToCart={handleAddToCart}
+        />
+        <Text style={styles.CoffeeBeansTitle}>Coffee Beans</Text>
+        <ProductsList
+          products={beansList}
+          topBarHeight={topBarHeight}
+          navigation={navigation}
+          handleAddToCart={handleAddToCart}
+        />
+      </ScrollView>
       <Toast position="bottom" bottomOffset={80} />
-    </SafeAreaView>
+    </ScreenContainer>
   );
 }
 
 const styles = StyleSheet.create({
-  SafeAreaContainer: {
-    flex: 1,
-    backgroundColor: COLORS.primaryBlackHex,
-  },
-  ScreenContainer: {
-    flex: 1,
-    backgroundColor: COLORS.primaryBlackHex,
-  },
   ScrollViewFlex: {
     flexGrow: 1,
   },

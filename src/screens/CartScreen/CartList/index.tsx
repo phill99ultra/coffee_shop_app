@@ -1,10 +1,9 @@
-import { StyleSheet, View } from 'react-native';
 import React from 'react';
 
-import EmptyList from './EmptyList';
+import EmptyList from '../../../components/EmptyList';
 import CartListItem from './CartListItem';
 import { CartListProps } from '../../../types/screens/cart';
-import { SPACING } from '../../../theme/theme';
+import ListContainer from '../../../hoc/ListContainer';
 
 const CartList = ({
   list,
@@ -16,7 +15,7 @@ const CartList = ({
   }
 
   return (
-    <View style={styles.ListConatiner}>
+    <ListContainer>
       {list.map(item => (
         <CartListItem
           key={item.id}
@@ -32,15 +31,8 @@ const CartList = ({
           handleChangeQuantity={handleChangeQuantity}
         />
       ))}
-    </View>
+    </ListContainer>
   );
 };
-
-const styles = StyleSheet.create({
-  ListConatiner: {
-    paddingHorizontal: SPACING.space_20,
-    gap: SPACING.space_20,
-  },
-});
 
 export default CartList;
