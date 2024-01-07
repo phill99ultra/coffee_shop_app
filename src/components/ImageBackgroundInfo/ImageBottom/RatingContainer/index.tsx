@@ -1,14 +1,9 @@
 import { StyleSheet, Text, View } from 'react-native';
 import React from 'react';
 
-import CustomIcon from '../../../../../components/CustomIcon';
-import {
-  COLORS,
-  FONTFAMILY,
-  FONTSIZE,
-  SPACING,
-} from '../../../../../theme/theme';
-import { RatingProps } from '../../../../../types/screens/item';
+import CustomIcon from '../../../CustomIcon';
+import { COLORS, FONTFAMILY, FONTSIZE, SPACING } from '../../../../theme/theme';
+import { RatingProps } from '../../../../types/screens/item';
 
 const RatingContainer = ({ average_rating, ratings_count }: RatingProps) => {
   return (

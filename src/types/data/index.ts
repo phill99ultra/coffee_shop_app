@@ -31,8 +31,11 @@ export type FavouriteItemType = {
   ratings_count: string;
   roasted: string;
   description: string;
-  special_ingredient: string;
+  special_portrait: string;
   imagelink_square: ImageProps;
+  ingredients: string;
+  imagelink_portrait: ImageProps;
+  special_ingredient: string;
   type: TYPE;
   favourite: boolean;
 };

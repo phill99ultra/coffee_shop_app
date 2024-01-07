@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View } from 'react-native';
 import React from 'react';
 
-import { ItemImageBottomProps } from '../../../../types/screens/item';
+import { ItemImageBottomProps } from '../../../types/screens/item';
 import Properties from './Properties';
 import RatingContainer from './RatingContainer';
 import {
@@ -10,7 +10,7 @@ import {
   FONTFAMILY,
   FONTSIZE,
   SPACING,
-} from '../../../../theme/theme';
+} from '../../../theme/theme';
 
 const ImageBottom = ({
   name,

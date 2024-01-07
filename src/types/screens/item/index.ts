@@ -13,14 +13,12 @@ export type ImageBtnsProps = {
   favourite: boolean;
   type: TYPE;
   id: string;
-  handleBackHandler: () => void;
+  handleBackHandler?: () => void;
 };
 
-export type ItemImageBtnsProps = {
-  handleToggleFavourite: FavouriteToggleType;
-} & ImageBtnsProps;
+export type ItemImageBtnsProps = FavouriteToggleType & ImageBtnsProps;
 
-export type ItemImageProps = {
+export type ImageBackgroundInfoProps = {
   imagelink_portrait: ImageProps;
   ingredients: string;
   name: string;

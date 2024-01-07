@@ -11,12 +11,23 @@ import {
   SPACING,
 } from '../../../../theme/theme';
 
+import ImageBackgroundInfo from '../../../../components/ImageBackgroundInfo';
+
 const FavouriteItem = ({
   navigation,
   id,
   index,
+  name,
   type,
   description,
+  imagelink_portrait,
+  roasted,
+  favourite,
+  average_rating,
+  ingredients,
+  ratings_count,
+  special_ingredient,
+  handleToggleFavourite,
 }: FavouriteItemProps) => {
   return (
     <TouchableOpacity
@@ -24,6 +35,20 @@ const FavouriteItem = ({
         navigation.push('Item', { index, id, type });
       }}>
       <View style={styles.ItemContainer}>
+        <ImageBackgroundInfo
+          id={id}
+          type={type}
+          name={name}
+          favourite={favourite}
+          imagelink_portrait={imagelink_portrait}
+          special_ingredient={special_ingredient}
+          roasted={roasted}
+          ingredients={ingredients}
+          average_rating={average_rating}
+          ratings_count={ratings_count}
+          enableBackHandler={false}
+          handleToggleFavourite={handleToggleFavourite}
+        />
         <LinearGradient
           start={{ x: 0, y: 0 }}
           end={{ x: 1, y: 1 }}

@@ -1,14 +1,14 @@
 import { StyleSheet, View } from 'react-native';
 import React from 'react';
 
-import { ProprertiesProps } from '../../../../../types/screens/item';
+import { ProprertiesProps } from '../../../../types/screens/item';
 import {
   BORDERRADIUS,
   COLORS,
   FONTFAMILY,
   FONTSIZE,
   SPACING,
-} from '../../../../../theme/theme';
+} from '../../../../theme/theme';
 import Property from './Property';
 
 const Properties = ({ type, ingredients }: ProprertiesProps) => {

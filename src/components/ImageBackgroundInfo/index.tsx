@@ -1,11 +1,11 @@
 import { StyleSheet, View, ImageBackground } from 'react-native';
 import React from 'react';
 
-import { ItemImageProps } from '../../../types/screens/item';
+import { ImageBackgroundInfoProps } from '../../types/screens/item';
 import ImageBtns from './ImageBtns';
 import ImageBottom from './ImageBottom';
 
-const ItemImage = ({
+const ImageBackgroundInfo = ({
   enableBackHandler,
   imagelink_portrait,
   type,
@@ -19,7 +19,7 @@ const ItemImage = ({
   roasted,
   handleBackHandler,
   handleToggleFavourite,
-}: ItemImageProps) => {
+}: ImageBackgroundInfoProps) => {
   return (
     <View>
       <ImageBackground
@@ -55,4 +55,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ItemImage;
+export default ImageBackgroundInfo;

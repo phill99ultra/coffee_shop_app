@@ -17,7 +17,7 @@ export type PaymentFooterProps = {
 };
 
 export type FavouriteToggleType = {
-  toggleFavourite: (favourite: boolean, type: string, id: string) => void;
+  handleToggleFavourite: (favourite: boolean, type: string, id: string) => void;
 };
 
 export type ChildrenType = {

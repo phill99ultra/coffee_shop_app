@@ -1,9 +1,9 @@
 import { StyleSheet, TouchableOpacity, View } from 'react-native';
 import React from 'react';
 
-import GradientIcon from '../../../../components/GradientBGIcon';
-import { COLORS, FONTSIZE, SPACING } from '../../../../theme/theme';
-import { ItemImageBtnsProps } from '../../../../types/screens/item';
+import GradientIcon from '../../GradientBGIcon';
+import { COLORS, FONTSIZE, SPACING } from '../../../theme/theme';
+import { ItemImageBtnsProps } from '../../../types/screens/item';
 
 const ImageBtns = ({
   enableBackHandler,
@@ -28,9 +28,7 @@ const ImageBtns = ({
         </TouchableOpacity>
       )}
       <TouchableOpacity
-        onPress={() =>
-          handleToggleFavourite.toggleFavourite(favourite, type, id)
-        }>
+        onPress={() => handleToggleFavourite(favourite, type, id)}>
         <GradientIcon
           name="like"
           color={favourite ? COLORS.primaryRedHex : COLORS.primaryLightGreyHex}

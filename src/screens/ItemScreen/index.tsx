@@ -4,7 +4,7 @@ import React, { useReducer } from 'react';
 import { InitialItemStateType } from '../../types/reducers';
 import { ItemScreenProps } from '../../types/navigation';
 
-import ItemImage from './ItemImage';
+import ImageBackgroundInfo from '../../components/ImageBackgroundInfo';
 import ItemInfoArea from './ItemInfoArea';
 import PaymentFooter from '../../components/PaymentFooter';
 import ScreenContainer from '../../hoc/ScreenContainer';
@@ -54,7 +54,7 @@ function ItemScreen({ navigation, route }: ItemScreenProps) {
       <ScrollView
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.ScrollViewFlex}>
-        <ItemImage
+        <ImageBackgroundInfo
           enableBackHandler={true}
           imagelink_portrait={imagelink_portrait}
           type={typeOfItem}

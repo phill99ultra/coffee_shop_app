@@ -1,14 +1,14 @@
 import { StyleSheet, Text, View } from 'react-native';
 import React from 'react';
 
-import CustomIcon from '../../../../../../components/CustomIcon';
+import CustomIcon from '../../../../CustomIcon';
 import {
   FONTSIZE,
   COLORS,
   BORDERRADIUS,
   FONTFAMILY,
-} from '../../../../../../theme/theme';
-import { PropertyProps } from '../../../../../../types/screens/item';
+} from '../../../../../theme/theme';
+import { PropertyProps } from '../../../../../types/screens/item';
 
 const Property = ({
   type,
