@@ -1,13 +1,14 @@
 import { useReducer, useRef } from 'react';
 import { FlatList } from 'react-native';
 
+import { InitialHomeStateType } from '../../../types/reducers';
+
 import {
   getCategoriesFromData,
   getCoffeeList,
   homeReducer,
   filterCoffeeList,
 } from '../../../helpers';
-import { InitialHomeStateType } from '../../../types/reducers';
 import { useStateStore } from '../../../hooks/useStateStore';
 
 const useHome = () => {

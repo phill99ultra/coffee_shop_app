@@ -11,7 +11,7 @@ const useCart = () => {
   } = useStateStore();
 
   function handleNavigateToPayment(navigation: CartScreenNavigationProp) {
-    navigation.navigate('Payment');
+    navigation.navigate('Payment', { amount: cartPrice });
   }
 
   function handleChangeQuantity(id: string, size: string, type: string) {

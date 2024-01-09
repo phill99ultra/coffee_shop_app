@@ -66,5 +66,6 @@ export interface BorderRadius {
   radius_15: number;
   radius_20: number;
   radius_25: number;
+  radius_30: number;
   radius_40: number;
 }

@@ -15,6 +15,7 @@ import {
   FONTSIZE,
   SPACING,
 } from '../../../theme/theme';
+
 import { getCoffeeList } from '../../../helpers';
 
 const CategoriesNavigator = ({

@@ -16,7 +16,9 @@ export type RootStackParamList = {
         type: string;
       }
     | undefined;
-  Payment: undefined;
+  Payment: {
+    amount: number;
+  };
   Favorite: {
     index: number;
     id: string;
@@ -55,6 +57,12 @@ export type FavoriteScreenNavigationProp = StackNavigationProp<
 >;
 type FavoriteScreenRouteProp = RouteProp<RootStackParamList, 'Favorite'>;
 
+export type PaymentScreenNavigationProp = StackNavigationProp<
+  RootStackParamList,
+  'Payment'
+>;
+type PaymentScreenRouteProp = RouteProp<RootStackParamList, 'Payment'>;
+
 // TYPES IN SCREEN COMPONENTS
 export type ItemScreenProps = {
   navigation: ItemScreenNavigationProp;
@@ -74,6 +82,11 @@ export type CartScreenProps = {
 export type FavoriteScreenProps = {
   navigation: FavoriteScreenNavigationProp;
   route: FavoriteScreenRouteProp;
+};
+
+export type PaymentScreenProps = {
+  navigation: PaymentScreenNavigationProp;
+  route: PaymentScreenRouteProp;
 };
 
 export type TabType = {

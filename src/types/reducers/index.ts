@@ -1,4 +1,4 @@
-import { DataType, PriceType } from '..';
+import { DataType, PriceType } from '../data';
 
 export type HomeActionType =
   | { type: 'SET_CATEGORIES'; payload: string[] }
@@ -10,6 +10,8 @@ export type ItemActionType =
   | { type: 'SET_FULL_DESCRIPTION'; payload: boolean }
   | { type: 'SET_PRICE'; payload: PriceType };
 
+export type PaymentActionType = { type: 'SET_PAYMENT_MODE'; payload: string };
+
 export type InitialHomeStateType = {
   categories: string[];
   searchText: string;
@@ -20,4 +22,8 @@ export type InitialHomeStateType = {
 export type InitialItemStateType = {
   fullDescription: boolean;
   price: PriceType;
+};
+
+export type InitialPaymentStateType = {
+  paymentMode: string;
 };

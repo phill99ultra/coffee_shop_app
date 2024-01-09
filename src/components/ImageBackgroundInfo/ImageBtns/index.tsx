@@ -19,7 +19,7 @@ const ImageBtns = ({
   return (
     <View style={[styles.ImageHeader, containerStyles]}>
       {enableBackHandler && (
-        <TouchableOpacity onPress={() => handleBackHandler()}>
+        <TouchableOpacity onPress={handleBackHandler}>
           <GradientIcon
             name="left"
             color={COLORS.primaryLightGreyHex}

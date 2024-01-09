@@ -1,4 +1,5 @@
-// TYPES FOR PROPS //
+import { ImageSourcePropType } from 'react-native';
+
 export type HeaderBarProps = {
   title?: string;
 };
@@ -22,4 +23,10 @@ export type FavouriteToggleType = {
 
 export type ChildrenType = {
   children: React.ReactNode;
+};
+
+export type PaymentListType = {
+  name: string;
+  icon: ImageSourcePropType;
+  isIcon: boolean;
 };

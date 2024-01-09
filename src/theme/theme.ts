@@ -74,5 +74,6 @@ export const BORDERRADIUS: BorderRadius = {
   radius_15: 15,
   radius_20: 20,
   radius_25: 25,
+  radius_30: 30,
   radius_40: 40,
 };

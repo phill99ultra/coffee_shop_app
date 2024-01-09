@@ -5,6 +5,8 @@ import {
   ItemActionType,
   InitialHomeStateType,
   InitialItemStateType,
+  InitialPaymentStateType,
+  PaymentActionType,
 } from '../types/reducers';
 
 export function getCategoriesFromData(data: DataType[]) {
@@ -68,6 +70,18 @@ export function itemReducer(
       return { ...state, fullDescription: action.payload };
     case 'SET_PRICE':
       return { ...state, price: action.payload };
+    default:
+      return state;
+  }
+}
+
+export function paymentReducer(
+  state: InitialPaymentStateType,
+  action: PaymentActionType,
+): InitialPaymentStateType {
+  switch (action.type) {
+    case 'SET_PAYMENT_MODE':
+      return { ...state, paymentMode: action.payload };
     default:
       return state;
   }
