@@ -5,6 +5,7 @@ import { SPACING } from '../../../theme/theme';
 import { PaymentOptionsProps } from '../../../types/screens/payment';
 
 import PaymentMethod from './PaymentMethod';
+import CreditCard from './CreditCard';
 
 const PaymentOptions = ({
   options,
@@ -13,6 +14,7 @@ const PaymentOptions = ({
 }: PaymentOptionsProps) => {
   return (
     <View style={styles.OptionsContainer}>
+      <CreditCard paymentMode={paymentMode} dispatch={dispatch} />
       {options.map(({ name, icon, isIcon }) => (
         <PaymentMethod
           key={name}

@@ -56,6 +56,8 @@ export interface FontSize {
   size_24: number;
   size_28: number;
   size_30: number;
+  size_40: number;
+  size_60: number;
 }
 
 export interface BorderRadius {

@@ -20,3 +20,8 @@ export type PaymentLinearGradientProps = {
 export type PaymentHeaderProps = {
   navigation: PaymentScreenNavigationProp;
 };
+
+export type CreditCardProps = {
+  paymentMode: string;
+  dispatch: React.Dispatch<PaymentActionType>;
+};
