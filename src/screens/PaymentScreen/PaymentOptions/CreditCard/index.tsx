@@ -2,7 +2,13 @@ import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import React from 'react';
 import LinearGradient from 'react-native-linear-gradient';
 
-import { COLORS, FONTSIZE } from '../../../../theme/theme';
+import {
+  BORDERRADIUS,
+  COLORS,
+  FONTFAMILY,
+  FONTSIZE,
+  SPACING,
+} from '../../../../theme/theme';
 import { CreditCardProps } from '../../../../types/screens/payment';
 
 import CustomIcon from '../../../../components/CustomIcon';
@@ -51,13 +57,13 @@ const CreditCard = ({ dispatch, paymentMode }: CreditCardProps) => {
               <Text style={styles.CreditCardNumber}>2009</Text>
             </View>
             <View style={styles.LinearGradientRow}>
-              <View>
+              <View style={styles.CreditCardNameContainer}>
                 <Text style={styles.CreditCardNameSubtitle}>
                   Card Holder Name
                 </Text>
                 <Text style={styles.CreditCardNameTitle}>Jonathan Doe</Text>
               </View>
-              <View>
+              <View style={styles.CreditCardDateContainer}>
                 <Text style={styles.CreditCardNameSubtitle}>Expiry Date</Text>
                 <Text style={styles.CreditCardNameTitle}>01/26</Text>
               </View>
@@ -70,15 +76,60 @@ const CreditCard = ({ dispatch, paymentMode }: CreditCardProps) => {
 };
 
 const styles = StyleSheet.create({
-  CreditCardContainer: {},
-  CreditCardTitle: {},
-  CreditCardBackground: {},
-  LinearGradient: {},
-  LinearGradientRow: {},
-  CreditCardNumberContainer: {},
-  CreditCardNumber: {},
-  CreditCardNameTitle: {},
-  CreditCardNameSubtitle: {},
+  CreditCardContainer: {
+    padding: SPACING.space_10,
+    gap: SPACING.space_10,
+    borderRadius: BORDERRADIUS.radius_30,
+    borderWidth: 3,
+  },
+  CreditCardTitle: {
+    fontFamily: FONTFAMILY.poppins_semibold,
+    fontSize: FONTSIZE.size_14,
+    color: COLORS.primaryWhiteHex,
+    marginLeft: SPACING.space_10,
+  },
+  CreditCardBackground: {
+    backgroundColor: COLORS.primaryGreyHex,
+    borderRadius: BORDERRADIUS.radius_25,
+  },
+  LinearGradient: {
+    borderRadius: BORDERRADIUS.radius_25,
+    gap: SPACING.space_36,
+    paddingHorizontal: SPACING.space_15,
+    paddingVertical: SPACING.space_10,
+  },
+  LinearGradientRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  CreditCardNumberContainer: {
+    flexDirection: 'row',
+    gap: SPACING.space_10,
+    alignItems: 'center',
+  },
+  CreditCardNumber: {
+    fontFamily: FONTFAMILY.poppins_semibold,
+    fontSize: FONTSIZE.size_18,
+    color: COLORS.primaryWhiteHex,
+    letterSpacing: SPACING.space_6,
+  },
+  CreditCardNameContainer: {
+    alignItems: 'flex-start',
+  },
+  CreditCardDateContainer: {
+    alignItems: 'flex-end',
+  },
+  CreditCardNameTitle: {
+    fontFamily: FONTFAMILY.poppins_medium,
+    fontSize: FONTSIZE.size_18,
+    color: COLORS.primaryWhiteHex,
+  },
+  CreditCardNameSubtitle: {
+    fontFamily: FONTFAMILY.poppins_regular,
+    fontSize: FONTSIZE.size_12,
+    color: COLORS.secondaryLightGreyHex,
+  },
 });
 
 export default CreditCard;

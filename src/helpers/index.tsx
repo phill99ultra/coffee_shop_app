@@ -82,6 +82,8 @@ export function paymentReducer(
   switch (action.type) {
     case 'SET_PAYMENT_MODE':
       return { ...state, paymentMode: action.payload };
+    case 'SET_SHOW_ANIMATION':
+      return { ...state, showAnimation: action.payload };
     default:
       return state;
   }

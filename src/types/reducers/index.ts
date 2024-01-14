@@ -10,7 +10,9 @@ export type ItemActionType =
   | { type: 'SET_FULL_DESCRIPTION'; payload: boolean }
   | { type: 'SET_PRICE'; payload: PriceType };
 
-export type PaymentActionType = { type: 'SET_PAYMENT_MODE'; payload: string };
+export type PaymentActionType =
+  | { type: 'SET_PAYMENT_MODE'; payload: string }
+  | { type: 'SET_SHOW_ANIMATION'; payload: boolean };
 
 export type InitialHomeStateType = {
   categories: string[];
@@ -26,4 +28,5 @@ export type InitialItemStateType = {
 
 export type InitialPaymentStateType = {
   paymentMode: string;
+  showAnimation: boolean;
 };

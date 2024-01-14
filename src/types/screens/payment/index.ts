@@ -1,3 +1,5 @@
+import { StyleProp, ViewStyle } from 'react-native';
+
 import { ChildrenType, PaymentListType } from '../..';
 import { PaymentScreenNavigationProp } from '../../navigation';
 import { PaymentActionType } from '../../reducers';
@@ -24,4 +26,9 @@ export type PaymentHeaderProps = {
 export type CreditCardProps = {
   paymentMode: string;
   dispatch: React.Dispatch<PaymentActionType>;
+};
+
+export type AnimationProps = {
+  source: any;
+  style: StyleProp<ViewStyle>;
 };

@@ -19,6 +19,7 @@ export const useStateStore = () => {
   const decrementCartItemQuantity = useStore(
     state => state.decrementCartItemQuantity,
   );
+  const addToOrderHistoryList = useStore(state => state.addToOrderHistoryList);
 
   function GetItemOfIndex(index: number, type: string) {
     const itemOfIndex = useStore((state: StoreType) =>
@@ -36,6 +37,7 @@ export const useStateStore = () => {
     favouriteList,
     addToCart,
     addToFavouriteList,
+    addToOrderHistoryList,
     calculateCartPrice,
     decrementCartItemQuantity,
     deleteFromFavouriteList,
