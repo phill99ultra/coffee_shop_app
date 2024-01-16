@@ -11,7 +11,7 @@ const ContentContainer = ({ children }: ChildrenType) => {
       showsVerticalScrollIndicator={false}
       contentContainerStyle={styles.ScrollViewContainer}>
       <View style={[styles.ScrollViewInner, { marginBottom: topBarHeight }]}>
-        {children}
+        <View style={styles.ContentContainer}>{children}</View>
       </View>
     </ScrollView>
   );
@@ -24,6 +24,9 @@ const styles = StyleSheet.create({
   ScrollViewInner: {
     flex: 1,
     justifyContent: 'space-between',
+  },
+  ContentContainer: {
+    flex: 1,
   },
 });
 

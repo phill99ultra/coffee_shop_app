@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { FavouriteListProps } from '../../../types/screens/favourite';
-import EmptyList from '../../../components/EmptyList';
+
 import FavouriteItem from './FavouriteItem';
 import ListContainer from '../../../hoc/ListContainer';
 
@@ -10,12 +10,8 @@ const FavouriteList = ({
   list,
   handleToggleFavourite,
 }: FavouriteListProps) => {
-  if (list.length === 0) {
-    return <EmptyList title="No Favourites" />;
-  }
-
   return (
-    <ListContainer>
+    <ListContainer listLength={list.length} emptyText="No Favourites">
       {list.map(item => (
         <FavouriteItem
           key={item.id}

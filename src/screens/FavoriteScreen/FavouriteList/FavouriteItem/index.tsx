@@ -1,6 +1,5 @@
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import React from 'react';
-import LinearGradient from 'react-native-linear-gradient';
 
 import { FavouriteItemProps } from '../../../../types/screens/favourite';
 import {
@@ -12,6 +11,7 @@ import {
 } from '../../../../theme/theme';
 
 import ImageBackgroundInfo from '../../../../components/ImageBackgroundInfo';
+import LinearGradientContainer from '../../../../hoc/LinearGradient';
 
 const FavouriteItem = ({
   navigation,
@@ -49,14 +49,10 @@ const FavouriteItem = ({
           enableBackHandler={false}
           handleToggleFavourite={handleToggleFavourite}
         />
-        <LinearGradient
-          start={{ x: 0, y: 0 }}
-          end={{ x: 1, y: 1 }}
-          colors={[COLORS.primaryGreyHex, COLORS.primaryBlackHex]}
-          style={styles.LinearGradientContainer}>
+        <LinearGradientContainer style={styles.LinearGradientContainer}>
           <Text style={styles.DescriptionTitle}>Description:</Text>
           <Text style={styles.DescriptionText}>{description}</Text>
-        </LinearGradient>
+        </LinearGradientContainer>
       </View>
     </TouchableOpacity>
   );

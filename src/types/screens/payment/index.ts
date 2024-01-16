@@ -1,4 +1,5 @@
 import { StyleProp, ViewStyle } from 'react-native';
+import { AnimationObject } from 'lottie-react-native';
 
 import { ChildrenType, PaymentListType } from '../..';
 import { PaymentScreenNavigationProp } from '../../navigation';
@@ -15,8 +16,8 @@ export type PaymentMethodProps = {
   dispatch: React.Dispatch<PaymentActionType>;
 } & PaymentListType;
 
-export type PaymentLinearGradientProps = {
-  isIcon: boolean;
+export type LinearGradientProps = {
+  style: StyleProp<ViewStyle>;
 } & ChildrenType;
 
 export type PaymentHeaderProps = {
@@ -29,6 +30,12 @@ export type CreditCardProps = {
 };
 
 export type AnimationProps = {
-  source: any;
+  source:
+    | string
+    | AnimationObject
+    | {
+        uri: string;
+      }
+    | undefined;
   style: StyleProp<ViewStyle>;
 };

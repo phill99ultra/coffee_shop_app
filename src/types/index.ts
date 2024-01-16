@@ -27,6 +27,11 @@ export type ChildrenType = {
 
 export type PaymentListType = {
   name: string;
-  icon: ImageSourcePropType;
+  icon: ImageSourcePropType | string;
   isIcon: boolean;
 };
+
+export type ListContainerProps = {
+  emptyText: string;
+  listLength: number;
+} & ChildrenType;

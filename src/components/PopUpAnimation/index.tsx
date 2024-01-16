@@ -2,8 +2,8 @@ import { StyleSheet, View } from 'react-native';
 import React from 'react';
 import LottieView from 'lottie-react-native';
 
-import { AnimationProps } from '../../../types/screens/payment';
-import { COLORS } from '../../../theme/theme';
+import { AnimationProps } from '../../types/screens/payment';
+import { COLORS } from '../../theme/theme';
 
 const Animation = ({ source, style }: AnimationProps) => {
   return (

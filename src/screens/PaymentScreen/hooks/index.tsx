@@ -1,7 +1,7 @@
 import { useReducer } from 'react';
 
-import { InitialPaymentStateType } from '../../../types/reducers';
 import { PaymentScreenNavigationProp } from '../../../types/navigation';
+import { INITIAL_PAYMENT_STATE } from '../../../constants';
 
 import { paymentReducer } from '../../../helpers';
 import { useStateStore } from '../../../hooks/useStateStore';
@@ -9,12 +9,7 @@ import { useStateStore } from '../../../hooks/useStateStore';
 const usePayment = () => {
   const { calculateCartPrice, addToOrderHistoryList } = useStateStore();
 
-  const INITIAL_STATE: InitialPaymentStateType = {
-    paymentMode: 'Credit Card',
-    showAnimation: false,
-  };
-
-  const [state, dispatch] = useReducer(paymentReducer, INITIAL_STATE);
+  const [state, dispatch] = useReducer(paymentReducer, INITIAL_PAYMENT_STATE);
 
   const handlePressPayment = (navigation: PaymentScreenNavigationProp) => {
     dispatch({

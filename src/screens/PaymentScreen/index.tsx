@@ -8,7 +8,7 @@ import ScreenContainer from '../../hoc/ScreenContainer';
 import PaymentHeader from './PaymentHeader';
 import PaymentOptions from './PaymentOptions';
 import PaymentFooter from '../../components/PaymentFooter';
-import Animation from './PopUpAnimation';
+import Animation from '../../components/PopUpAnimation';
 
 import usePayment from './hooks';
 

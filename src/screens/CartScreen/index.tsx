@@ -1,4 +1,3 @@
-import { View, StyleSheet } from 'react-native';
 import React from 'react';
 
 import { CartScreenProps } from '../../types/navigation';
@@ -18,14 +17,12 @@ function CartScreen({ navigation }: CartScreenProps) {
   return (
     <ScreenContainer>
       <ContentContainer>
-        <View style={styles.ContentContainer}>
-          <HeaderBar title="Cart" />
-          <CartList
-            list={cartList}
-            navigation={navigation}
-            handleChangeQuantity={handleChangeQuantity}
-          />
-        </View>
+        <HeaderBar title="Cart" />
+        <CartList
+          list={cartList}
+          navigation={navigation}
+          handleChangeQuantity={handleChangeQuantity}
+        />
         {cartList.length !== 0 && (
           <PaymentFooter
             title="Pay"
@@ -38,11 +35,5 @@ function CartScreen({ navigation }: CartScreenProps) {
     </ScreenContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  ContentContainer: {
-    flex: 1,
-  },
-});
 
 export default CartScreen;

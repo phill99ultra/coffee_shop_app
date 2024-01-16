@@ -1,21 +1,18 @@
 import { StyleSheet, View } from 'react-native';
 import React from 'react';
-import LinearGradient from 'react-native-linear-gradient';
 
 import { GradientIconProps } from '../../types';
 import { COLORS, SPACING } from '../../theme/theme';
+
 import CustomIcon from '../CustomIcon';
+import LinearGradientContainer from '../../hoc/LinearGradient';
 
 const GradientIcon = ({ name, color, size }: GradientIconProps) => {
   return (
     <View style={styles.Container}>
-      <LinearGradient
-        start={{ x: 0, y: 0 }}
-        end={{ x: 1, y: 1 }}
-        colors={[COLORS.primaryGreyHex, COLORS.primaryBlackHex]}
-        style={styles.LinearGradientBG}>
+      <LinearGradientContainer style={styles.LinearGradientBG}>
         <CustomIcon name={name} size={size} color={color} />
-      </LinearGradient>
+      </LinearGradientContainer>
     </View>
   );
 };

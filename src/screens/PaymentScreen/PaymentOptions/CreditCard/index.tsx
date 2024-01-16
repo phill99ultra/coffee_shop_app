@@ -1,6 +1,5 @@
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import React from 'react';
-import LinearGradient from 'react-native-linear-gradient';
 
 import {
   BORDERRADIUS,
@@ -12,6 +11,7 @@ import {
 import { CreditCardProps } from '../../../../types/screens/payment';
 
 import CustomIcon from '../../../../components/CustomIcon';
+import LinearGradientContainer from '../../../../hoc/LinearGradient';
 
 const CreditCard = ({ dispatch, paymentMode }: CreditCardProps) => {
   const dynamicBorderColor =
@@ -33,11 +33,7 @@ const CreditCard = ({ dispatch, paymentMode }: CreditCardProps) => {
         ]}>
         <Text style={styles.CreditCardTitle}>Credit Card</Text>
         <View style={styles.CreditCardBackground}>
-          <LinearGradient
-            start={{ x: 0, y: 0 }}
-            end={{ x: 1, y: 1 }}
-            colors={[COLORS.primaryGreyHex, COLORS.primaryBlackHex]}
-            style={styles.LinearGradient}>
+          <LinearGradientContainer style={styles.LinearGradient}>
             <View style={styles.LinearGradientRow}>
               <CustomIcon
                 name="chip"
@@ -68,7 +64,7 @@ const CreditCard = ({ dispatch, paymentMode }: CreditCardProps) => {
                 <Text style={styles.CreditCardNameTitle}>01/26</Text>
               </View>
             </View>
-          </LinearGradient>
+          </LinearGradientContainer>
         </View>
       </View>
     </TouchableOpacity>

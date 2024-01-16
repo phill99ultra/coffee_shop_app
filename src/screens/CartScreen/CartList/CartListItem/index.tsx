@@ -1,17 +1,13 @@
 import { TouchableOpacity, View, StyleSheet, Image } from 'react-native';
 import React from 'react';
-import LinearGradient from 'react-native-linear-gradient';
 
 import { CartListItemProps } from '../../../../types/screens/cart';
-import {
-  BORDERRADIUS,
-  COLORS,
-  FONTSIZE,
-  SPACING,
-} from '../../../../theme/theme';
+import { BORDERRADIUS, FONTSIZE, SPACING } from '../../../../theme/theme';
+
 import CartItemInfo from './CartItemInfo';
 import CartSingleItemInfo from './CartSingleItemInfo';
 import CartItemSizes from './CartItemSizes';
+import LinearGradientContainer from '../../../../hoc/LinearGradient';
 
 const CartListItem = ({
   id,
@@ -33,11 +29,7 @@ const CartListItem = ({
       }}>
       <View>
         {prices.length !== 1 ? (
-          <LinearGradient
-            start={{ x: 0, y: 0 }}
-            end={{ x: 1, y: 1 }}
-            colors={[COLORS.primaryGreyHex, COLORS.primaryBlackHex]}
-            style={styles.CartItemLinearGradient}>
+          <LinearGradientContainer style={styles.CartItemLinearGradient}>
             <View style={styles.CartItemRow}>
               <Image style={styles.CartItemImage} source={imagelink_square} />
               <CartItemInfo
@@ -58,13 +50,9 @@ const CartListItem = ({
                 handleChangeQuantity={handleChangeQuantity}
               />
             ))}
-          </LinearGradient>
+          </LinearGradientContainer>
         ) : (
-          <LinearGradient
-            start={{ x: 0, y: 0 }}
-            end={{ x: 1, y: 1 }}
-            colors={[COLORS.primaryGreyHex, COLORS.primaryBlackHex]}
-            style={styles.CartItemSingleLinearGradient}>
+          <LinearGradientContainer style={styles.CartItemSingleLinearGradient}>
             <View>
               <Image source={imagelink_square} style={styles.CartItemImage} />
             </View>
@@ -79,7 +67,7 @@ const CartListItem = ({
               quantity={prices[0].quantity}
               handleChangeQuantity={handleChangeQuantity}
             />
-          </LinearGradient>
+          </LinearGradientContainer>
         )}
       </View>
     </TouchableOpacity>

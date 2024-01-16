@@ -10,7 +10,7 @@ import {
   SPACING,
 } from '../../../../theme/theme';
 
-import PaymentLinearGradient from '../../../../hoc/PaymentLinearGradient';
+import LinearGradientContainer from '../../../../hoc/LinearGradient';
 import CustomIcon from '../../../../components/CustomIcon';
 
 const PaymentMethod = ({
@@ -22,6 +22,7 @@ const PaymentMethod = ({
 }: PaymentMethodProps) => {
   const dynamicBorderColor =
     paymentMode === name ? COLORS.primaryOrangeHex : COLORS.primaryGreyHex;
+  const dynamicJustifyContent = isIcon ? 'space-between' : undefined;
   return (
     <TouchableOpacity
       onPress={() => {
@@ -36,7 +37,11 @@ const PaymentMethod = ({
           { borderColor: dynamicBorderColor },
         ]}>
         {isIcon ? (
-          <PaymentLinearGradient isIcon={isIcon}>
+          <LinearGradientContainer
+            style={[
+              styles.LinearGradientWallet,
+              { justifyContent: dynamicJustifyContent },
+            ]}>
             <View style={styles.WalletRow}>
               <CustomIcon
                 name="wallet"
@@ -46,12 +51,12 @@ const PaymentMethod = ({
               <Text style={styles.PaymentTitle}>{name}</Text>
             </View>
             <Text style={styles.PaymentPrice}>$ 100.50</Text>
-          </PaymentLinearGradient>
+          </LinearGradientContainer>
         ) : (
-          <PaymentLinearGradient isIcon={isIcon}>
+          <LinearGradientContainer style={styles.LinearGradientWallet}>
             <Image source={icon} style={styles.PaymentImage} />
             <Text style={styles.PaymentTitle}>{name}</Text>
-          </PaymentLinearGradient>
+          </LinearGradientContainer>
         )}
       </View>
     </TouchableOpacity>
@@ -82,6 +87,14 @@ const styles = StyleSheet.create({
   PaymentImage: {
     width: SPACING.space_30,
     height: SPACING.space_30,
+  },
+  LinearGradientWallet: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    padding: SPACING.space_12,
+    paddingHorizontal: SPACING.space_24,
+    gap: SPACING.space_24,
+    borderRadius: BORDERRADIUS.radius_30,
   },
 });
 

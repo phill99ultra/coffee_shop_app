@@ -1,6 +1,5 @@
 import React from 'react';
 
-import EmptyList from '../../../components/EmptyList';
 import CartListItem from './CartListItem';
 import { CartListProps } from '../../../types/screens/cart';
 import ListContainer from '../../../hoc/ListContainer';
@@ -10,12 +9,8 @@ const CartList = ({
   navigation,
   handleChangeQuantity,
 }: CartListProps) => {
-  if (list.length === 0) {
-    return <EmptyList title="Cart is empty" />;
-  }
-
   return (
-    <ListContainer>
+    <ListContainer listLength={list.length} emptyText="Cart is empty">
       {list.map(item => (
         <CartListItem
           key={item.id}

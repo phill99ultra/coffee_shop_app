@@ -2,7 +2,6 @@ import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import React from 'react';
 
 import { ItemCardProps } from '../../../../types/screens/home';
-import LinearGradient from 'react-native-linear-gradient';
 import {
   BORDERRADIUS,
   COLORS,
@@ -10,8 +9,10 @@ import {
   FONTSIZE,
   SPACING,
 } from '../../../../theme/theme';
+
 import CardImage from './CardImage';
 import CardBottom from './CardBottom';
+import LinearGradientContainer from '../../../../hoc/LinearGradient';
 
 const ProductCard = ({
   name,
@@ -33,11 +34,7 @@ const ProductCard = ({
         onPress={() => {
           navigation.push('Item', { index, id, type });
         }}>
-        <LinearGradient
-          start={{ x: 0, y: 0 }}
-          end={{ x: 1, y: 1 }}
-          style={styles.CardLinearGradientContainer}
-          colors={[COLORS.primaryGreyHex, COLORS.primaryBlackHex]}>
+        <LinearGradientContainer style={styles.CardLinearGradientContainer}>
           <CardImage
             imagelink_square={imagelink_square}
             average_rating={average_rating}
@@ -56,7 +53,7 @@ const ProductCard = ({
             type={type}
             buttonPressHandler={buttonPressHandler}
           />
-        </LinearGradient>
+        </LinearGradientContainer>
       </TouchableOpacity>
     </View>
   );

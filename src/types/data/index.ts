@@ -50,6 +50,12 @@ export type DataType = {
   item_price?: string;
 } & CartItemType;
 
+export type OrderType = {
+  orderDate: string;
+  cartList: DataType[];
+  cartListTotalPrice: string;
+};
+
 export type CountMapType = {
   [key: string]: number;
 };
@@ -67,8 +73,8 @@ export type StoreType = {
   beansList: DataType[];
   cartPrice: number;
   favouritesList: [];
-  cartList: CartItemType[];
-  orderHistoryList: [];
+  cartList: DataType[];
+  orderHistoryList: OrderType[];
   addToFavouriteList: (type: string, id: string) => void;
   deleteFromFavouriteList: (type: string, id: string) => void;
   incrementCartItemQuantity: (id: string, size: string) => void;

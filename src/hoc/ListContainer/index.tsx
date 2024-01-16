@@ -2,9 +2,18 @@ import { StyleSheet, View } from 'react-native';
 import React from 'react';
 
 import { SPACING } from '../../theme/theme';
-import { ChildrenType } from '../../types';
+import { ListContainerProps } from '../../types';
 
-const ListContainer = ({ children }: ChildrenType) => {
+import EmptyList from '../../components/EmptyList';
+
+const ListContainer = ({
+  children,
+  emptyText,
+  listLength,
+}: ListContainerProps) => {
+  if (listLength === 0) {
+    return <EmptyList title={emptyText} />;
+  }
   return <View style={styles.ListConatiner}>{children}</View>;
 };
 

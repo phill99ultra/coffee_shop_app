@@ -1,4 +1,3 @@
-import { View, StyleSheet } from 'react-native';
 import React from 'react';
 
 import { FavoriteScreenProps } from '../../types/navigation';
@@ -15,23 +14,15 @@ function FavoriteScreen({ navigation }: FavoriteScreenProps) {
   return (
     <ScreenContainer>
       <ContentContainer>
-        <View style={styles.ContentContainer}>
-          <HeaderBar title="Favourites" />
-          <FavouriteList
-            list={favouriteList}
-            navigation={navigation}
-            handleToggleFavourite={handleToggleFavourite}
-          />
-        </View>
+        <HeaderBar title="Favourites" />
+        <FavouriteList
+          list={favouriteList}
+          navigation={navigation}
+          handleToggleFavourite={handleToggleFavourite}
+        />
       </ContentContainer>
     </ScreenContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  ContentContainer: {
-    flex: 1,
-  },
-});
 
 export default FavoriteScreen;

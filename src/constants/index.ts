@@ -4,6 +4,7 @@ import FavoriteScreen from '../screens/FavoriteScreen';
 import OrderHistoryScreen from '../screens/OrderHistoryScreen';
 import { TabType } from '../types/navigation';
 import { PaymentListType } from '../types';
+import { InitialPaymentStateType } from '../types/reducers';
 
 export const TAB_VALUES: TabType[] = [
   {
@@ -54,3 +55,8 @@ export const PAYMENT_LIST: PaymentListType[] = [
     isIcon: false,
   },
 ];
+
+export const INITIAL_PAYMENT_STATE: InitialPaymentStateType = {
+  paymentMode: 'Credit Card',
+  showAnimation: false,
+};
