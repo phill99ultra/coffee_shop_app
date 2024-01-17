@@ -5,7 +5,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import TabNavigator from './src/navigators/TabNavigator';
 import PaymentScreen from './src/screens/PaymentScreen';
 import ItemScreen from './src/screens/ItemScreen';
-import { RootStackParamList } from './src/types';
+import { RootStackParamList } from './src/types/navigation';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
